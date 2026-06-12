@@ -30,7 +30,7 @@ const config: Config = {
         tightest: "-0.02em",
       },
       maxWidth: {
-        phone: "430px",
+        phone: "420px",
       },
       keyframes: {
         "pulse-scale": {
