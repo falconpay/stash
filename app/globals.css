@@ -25,6 +25,9 @@ body {
   background: #05070b;
   color: var(--text-primary);
   font-feature-settings: "cv11", "ss01";
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Phone-frame desktop backdrop */
