@@ -76,7 +76,7 @@ export function OtpInput({
           onKeyDown={(e) => handleKeyDown(i, e)}
           onPaste={handlePaste}
           aria-label={`Digit ${i + 1}`}
-          className={`h-14 w-12 rounded-xl border bg-surface text-center font-mono text-xl text-primary outline-none transition-all ${
+          className={`h-14 min-w-0 flex-1 rounded-xl border bg-surface text-center font-mono text-xl text-primary outline-none transition-all ${
             value ? "border-accent/60" : "border-border"
           } focus:border-accent focus:ring-2 focus:ring-accent/20 ${
             pulse === i ? "animate-pulse-scale" : ""

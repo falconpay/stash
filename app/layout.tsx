@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="overflow-x-hidden font-sans antialiased">
         <div className="app-backdrop flex justify-center">
           <PhoneFrame>{children}</PhoneFrame>
         </div>

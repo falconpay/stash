@@ -10,18 +10,12 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
   const showNav = !NO_NAV_ROUTES.includes(pathname);
 
   return (
-    <div className="relative w-full max-w-phone">
-      <div
-        className="relative min-h-[100dvh] overflow-hidden bg-base sm:my-6 sm:min-h-[860px] sm:rounded-[2.5rem] sm:border sm:border-white/5"
-        style={{
-          boxShadow:
-            "0 40px 120px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03)",
-        }}
-      >
-        <div className="relative flex min-h-[100dvh] flex-col sm:min-h-[860px]">
-          <main className={`flex-1 ${showNav ? "pb-24" : ""}`}>{children}</main>
-          {showNav && <BottomNav />}
-        </div>
+    // Mobile: full width & height, no frame.
+    // Desktop (lg+): centered 430px "phone" with rounded frame + shadow.
+    <div className="relative w-full lg:max-w-phone">
+      <div className="relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-base lg:my-6 lg:min-h-[860px] lg:rounded-[2.5rem] lg:border lg:border-white/5 lg:shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)]">
+        <main className={`flex-1 ${showNav ? "pb-24" : ""}`}>{children}</main>
+        {showNav && <BottomNav />}
       </div>
     </div>
   );
