@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0e1117;
+  --bg-surface: #161b27;
+  --bg-elevated: #1e2535;
+  --accent: #f5a623;
+  --accent-soft: #f5a62318;
+  --text-primary: #f0ede6;
+  --text-secondary: #8891a4;
+  --text-tertiary: #4a5262;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --border: #252d3d;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  background: #05070b;
+  color: var(--text-primary);
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Phone-frame desktop backdrop */
+.app-backdrop {
+  min-height: 100dvh;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #131a2e 0%, transparent 60%),
+    radial-gradient(900px 500px at 50% 110%, #1a1330 0%, transparent 55%),
+    #05070b;
+}
+
+/* Frosted gradient border — the signature card treatment */
+.frost-border {
+  position: relative;
+}
+.frost-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.02) 45%,
+    transparent 80%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.frost-border-blue::before {
+  background: linear-gradient(
+    150deg,
+    rgba(96, 140, 255, 0.4),
+    rgba(96, 140, 255, 0.05) 45%,
+    transparent 80%
+  );
+}
+.frost-border-purple::before {
+  background: linear-gradient(
+    150deg,
+    rgba(168, 120, 255, 0.4),
+    rgba(168, 120, 255, 0.05) 45%,
+    transparent 80%
+  );
+}
+.frost-border-green::before {
+  background: linear-gradient(
+    150deg,
+    rgba(96, 220, 140, 0.4),
+    rgba(96, 220, 140, 0.05) 45%,
+    transparent 80%
+  );
+}
+
+/* Hide scrollbars on snap/scroll containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
