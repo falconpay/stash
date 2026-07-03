@@ -16,7 +16,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stash — Your money, every currency",
+  title: "Trip — Your money, every currency",
   description: "A multicurrency mobile wallet.",
   manifest: "/manifest.json",
 };

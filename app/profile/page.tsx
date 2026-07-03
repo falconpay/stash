@@ -135,7 +135,7 @@ export default function ProfilePage() {
         </button>
 
         <p className="mt-6 text-center text-xs text-tertiary">
-          Stash · Version 1.0.0
+          Trip · Version 1.0.0
         </p>
       </div>
     </PageTransition>
