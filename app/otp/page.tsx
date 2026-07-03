@@ -13,7 +13,7 @@ export default function OtpPage() {
   const [email, setEmail] = useState(user.email);
 
   useEffect(() => {
-    const stored = sessionStorage.getItem("trip_email");
+    const stored = sessionStorage.getItem("stash_email");
     if (stored) setEmail(stored);
   }, []);
 

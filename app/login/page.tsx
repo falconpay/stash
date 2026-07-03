@@ -23,7 +23,7 @@ export default function LoginPage() {
             <Wallet size={30} className="text-accent" />
           </span>
           <h1 className="mt-4 text-2xl font-bold tracking-tightest text-primary">
-            Trip
+            Stash
           </h1>
           <p className="mt-1 text-sm text-secondary">
             Your money, every currency.
@@ -87,7 +87,7 @@ export default function LoginPage() {
           <button
             disabled={!valid}
             onClick={() => {
-              sessionStorage.setItem("trip_email", email);
+              sessionStorage.setItem("stash_email", email);
               router.push("/otp");
             }}
             className="h-14 w-full rounded-xl bg-accent text-base font-semibold text-[#0E1117] transition-all active:scale-[0.98] disabled:opacity-40"

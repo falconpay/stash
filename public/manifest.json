@@ -1,6 +1,6 @@
 {
-  "name": "Trip — Multicurrency Wallet",
-  "short_name": "Trip",
+  "name": "Stash — Multicurrency Wallet",
+  "short_name": "Stash",
   "description": "Your money, every currency.",
   "start_url": "/dashboard",
   "display": "standalone",

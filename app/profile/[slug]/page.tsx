@@ -409,7 +409,7 @@ function Sessions() {
 
 function HelpCentre() {
   const topics = [
-    "Getting started with Trip",
+    "Getting started with Stash",
     "Adding and exchanging currencies",
     "Sending and receiving money",
     "Card limits and security",
@@ -488,7 +488,7 @@ function RateApp() {
 
   return (
     <div className="flex flex-col items-center">
-      <p className="text-sm text-secondary">How would you rate Trip?</p>
+      <p className="text-sm text-secondary">How would you rate Stash?</p>
       <div className="mt-5 flex gap-2">
         {[1, 2, 3, 4, 5].map((n) => (
           <button

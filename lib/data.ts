@@ -88,7 +88,7 @@ export const wallets: Wallet[] = [
     account: "•••• 2554",
     iban: "LT93 3981 8000 0096 2554",
     bic: "DIUALT22XXX",
-    bank: "Clear Junction",
+    bank: "Trip",
     holder: "IZABELA KULMA",
   },
   {
