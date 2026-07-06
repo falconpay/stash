@@ -53,7 +53,11 @@ export default function HistoryPage() {
       }
       map.get(key)!.push(tx);
     }
-    return order.map((k) => ({ date: k, items: map.get(k)! }));
+    // Sort each group by time descending (most recent first within the day)
+    return order.map((k) => ({
+      date: k,
+      items: map.get(k)!.slice().sort((a, b) => b.time.localeCompare(a.time)),
+    }));
   }, [query, filter]);
 
   return (
@@ -130,7 +134,7 @@ export default function HistoryPage() {
                               {tx.merchant}
                             </p>
                             <p className="truncate text-xs text-secondary">
-                              {tx.method}
+                              {tx.time} · {tx.method}
                             </p>
                           </div>
                           <div className="text-right">
@@ -164,6 +168,9 @@ export default function HistoryPage() {
                               className="overflow-hidden"
                             >
                               <div className="mb-3 ml-14 space-y-2 rounded-xl bg-surface p-3.5">
+                                <DetailRow label="Date & time">
+                                  {tx.date} at {tx.time}
+                                </DetailRow>
                                 <DetailRow label="Reference">
                                   {tx.reference}
                                 </DetailRow>
