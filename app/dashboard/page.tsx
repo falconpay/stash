@@ -25,6 +25,28 @@ import {
   formatAmount,
 } from "@/lib/data";
 
+// Date ordering for sorting (most recent first)
+const DATE_ORDER: Record<string, number> = { Today: 0, Yesterday: 1 };
+function dateSortKey(date: string): number {
+  if (date in DATE_ORDER) return DATE_ORDER[date];
+  // Parse "Jul 4", "Jun 30", etc. — assign higher numbers for older dates
+  const parsed = new Date(`${date} 2026`);
+  if (!isNaN(parsed.getTime())) {
+    // Days before today (Jul 6 2026)
+    const today = new Date("Jul 6 2026");
+    return Math.ceil((today.getTime() - parsed.getTime()) / 86400000);
+  }
+  return 999;
+}
+
+const recentTransactions = [...transactions]
+  .sort((a, b) => {
+    const dateDiff = dateSortKey(a.date) - dateSortKey(b.date);
+    if (dateDiff !== 0) return dateDiff;
+    return b.time.localeCompare(a.time);
+  })
+  .slice(0, 5);
+
 const totalBalance = wallets.reduce(
   (sum, w) => sum + convert(w.balance, w.currency, defaultCurrency),
   0
@@ -158,8 +180,7 @@ export default function DashboardPage() {
             {loading ? (
               <SkeletonList rows={5} />
             ) : (
-              transactions
-                .slice(0, 5)
+              recentTransactions
                 .map((tx) => <TransactionRow key={tx.id} tx={tx} />)
             )}
           </div>
