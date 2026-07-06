@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowUpDown, ChevronDown, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpDown, ChevronDown, Check } from "lucide-react";
 import {
   wallets,
   convert,
@@ -67,7 +67,7 @@ export default function ExchangePage() {
             onClick={() => router.push("/dashboard")}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-surface active:scale-95"
           >
-            <X size={20} className="text-primary" />
+            <ArrowLeft size={20} className="text-primary" />
           </button>
           <h1 className="text-base font-semibold tracking-tight text-primary">
             Exchange
@@ -167,7 +167,7 @@ export default function ExchangePage() {
         )}
 
         {/* Footer */}
-        <div className="px-5 pb-8">
+        <div className="px-5 pb-24">
           {done ? (
             <button
               onClick={() => router.push("/dashboard")}

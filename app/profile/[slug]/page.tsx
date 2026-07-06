@@ -40,7 +40,7 @@ export default function SettingDetail() {
       <div className="px-5 pt-6">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/profile")}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-surface active:scale-95"
           >
             <ArrowLeft size={20} className="text-primary" />

@@ -17,6 +17,7 @@ import {
   Flag,
   Star,
   LogOut,
+  ArrowLeft,
   LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -77,9 +78,17 @@ export default function ProfilePage() {
 
   return (
     <PageTransition>
-      <div className="px-5 pt-8">
+      <div className="px-5 pt-6">
+        {/* Back button */}
+        <button
+          onClick={() => router.push("/dashboard")}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-surface active:scale-95"
+        >
+          <ArrowLeft size={20} className="text-primary" />
+        </button>
+
         {/* Avatar header */}
-        <div className="flex flex-col items-center">
+        <div className="mt-4 flex flex-col items-center">
           <span className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-2xl font-bold text-[#0E1117]">
             {user.initials}
           </span>

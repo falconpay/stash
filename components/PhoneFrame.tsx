@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { BottomNav } from "./BottomNav";
 
-const NO_NAV_ROUTES = ["/login", "/otp", "/", "/send", "/exchange"];
+const NO_NAV_ROUTES = ["/login", "/otp", "/"];
 
 export function PhoneFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

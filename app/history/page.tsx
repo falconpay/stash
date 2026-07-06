@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Search, ChevronDown, ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Search, ChevronDown, ArrowUpRight, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SkeletonList } from "@/components/SkeletonLoader";
 import { PageTransition } from "@/components/PageTransition";
@@ -44,6 +45,7 @@ function matchesFilter(tx: Transaction, filter: Filter): boolean {
 }
 
 export default function HistoryPage() {
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("All");
@@ -88,9 +90,17 @@ export default function HistoryPage() {
   return (
     <PageTransition>
       <div className="px-5 pt-6">
-        <h1 className="text-xl font-bold tracking-tightest text-primary">
-          Transactions
-        </h1>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => router.push("/dashboard")}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface active:scale-95"
+          >
+            <ArrowLeft size={20} className="text-primary" />
+          </button>
+          <h1 className="text-xl font-bold tracking-tightest text-primary">
+            Transactions
+          </h1>
+        </div>
 
         {/* Wallet tabs */}
         <div className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5">

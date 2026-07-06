@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowLeft, Check, ChevronDown, User } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, User } from "lucide-react";
 import {
   wallets,
   recentContacts,
@@ -43,11 +43,7 @@ export default function SendPage() {
             onClick={back}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-surface active:scale-95"
           >
-            {step === 0 ? (
-              <X size={20} className="text-primary" />
-            ) : (
-              <ArrowLeft size={20} className="text-primary" />
-            )}
+            <ArrowLeft size={20} className="text-primary" />
           </button>
           <div className="flex gap-1.5">
             {[0, 1, 2].map((i) => (
@@ -238,7 +234,7 @@ export default function SendPage() {
         </div>
 
         {/* Footer CTA */}
-        <div className="px-5 pb-8">
+        <div className="px-5 pb-24">
           {step < 2 && (
             <button
               disabled={!canContinue}
