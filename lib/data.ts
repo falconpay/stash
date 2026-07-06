@@ -84,7 +84,7 @@ export const wallets: Wallet[] = [
     currency: "EUR",
     symbol: "€",
     name: "Euro",
-    balance: 146.81,
+    balance: 121.61,
     account: "•••• 2554",
     iban: "LT93 3981 8000 0096 2554",
     bic: "DIUALT22XXX",
@@ -95,7 +95,7 @@ export const wallets: Wallet[] = [
     currency: "GBP",
     symbol: "£",
     name: "British Pound",
-    balance: 80.0,
+    balance: 33.03,
     account: "•••• 7731",
     sortCode: "20-18-34",
     accountNo: "58739214",
@@ -118,16 +118,42 @@ export const wallets: Wallet[] = [
 const card = { GBP: "Card •••• 7731", EUR: "Card •••• 2554", USD: "Card •••• 9902" };
 
 export const transactions: Transaction[] = [
-  // Today — Jul 3
-  { id: 200, merchant: "From Olivia Schmidt", type: "credit", amount: 200.0, currency: "EUR", date: "Today", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-OSCHMIDT-0703" },
-  { id: 201, merchant: "Bolt Food", type: "debit", amount: -11.8, currency: "EUR", date: "Today", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0703-0041" },
-  { id: 202, merchant: "Spotify", type: "debit", amount: -9.99, currency: "GBP", date: "Today", category: "Entertainment", status: "success", method: card.GBP, reference: "SPOT-0703-2291" },
-  { id: 203, merchant: "From Mia Larsson", type: "credit", amount: 55.0, currency: "EUR", date: "Today", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MLARSSON-0703" },
-  // Yesterday — Jul 2
-  { id: 196, merchant: "Amazon", type: "debit", amount: -27.49, currency: "GBP", date: "Yesterday", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0702-8812" },
-  { id: 197, merchant: "From Felix Weber", type: "credit", amount: 80.0, currency: "EUR", date: "Yesterday", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-FWEBER-0702" },
-  { id: 198, merchant: "TfL", type: "debit", amount: -9.4, currency: "GBP", date: "Yesterday", category: "Transport", status: "success", method: card.GBP, reference: "TFL-0702-5530" },
-  { id: 199, merchant: "Card maintenance fee", type: "debit", amount: -2.99, currency: "GBP", date: "Yesterday", category: "Fees", status: "success", method: "Service charge", reference: "FEE-CARD-0702" },
+  // Today — Jul 6
+  // EUR: +4500 in, -4500 out → net 0 EUR. Small food spend -13.40.
+  // GBP: +7000 in, -7000 out → net 0 GBP. Small transport spend -6.80.
+  { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 4500.0, currency: "EUR", date: "Today", category: "Income", status: "success", method: "Bank transfer", reference: "APEX-INV-0706-001" },
+  { id: 221, merchant: "Rent — Jul 2026", type: "debit", amount: -4500.0, currency: "EUR", date: "Today", category: "Transfer", status: "success", method: "Bank transfer", reference: "RENT-0706-JUL26" },
+  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 7000.0, currency: "GBP", date: "Today", category: "Income", status: "success", method: "Bank transfer", reference: "MERCER-INV-0706-88" },
+  { id: 223, merchant: "To Northwind Escrow", type: "debit", amount: -7000.0, currency: "GBP", date: "Today", category: "Transfer", status: "success", method: "Bank transfer", reference: "ESCROW-NW-0706-88" },
+  { id: 224, merchant: "Deliveroo", type: "debit", amount: -13.4, currency: "EUR", date: "Today", category: "Food", status: "success", method: card.EUR, reference: "DLVR-0706-0091" },
+  { id: 225, merchant: "TfL", type: "debit", amount: -6.8, currency: "GBP", date: "Today", category: "Transport", status: "success", method: card.GBP, reference: "TFL-0706-2201" },
+  // Yesterday — Jul 5
+  // EUR: +3000 in, -3000 out → net 0. USD: +2700 in, -2700 out → net 0.
+  // GBP small spend: -7.20 (Starbucks) + -9.99 (Spotify) = -17.19
+  { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 3000.0, currency: "EUR", date: "Yesterday", category: "Transfer", status: "success", method: "Bank transfer", reference: "VT-PAY-IN-0705-332" },
+  { id: 215, merchant: "To VentureTech Ltd", type: "debit", amount: -3000.0, currency: "EUR", date: "Yesterday", category: "Transfer", status: "success", method: "Bank transfer", reference: "VT-PAY-OUT-0705-332" },
+  { id: 216, merchant: "Wire In — Goldstein Partners", type: "credit", amount: 2700.0, currency: "USD", date: "Yesterday", category: "Income", status: "success", method: "Bank transfer", reference: "GOLD-WIRE-IN-0705" },
+  { id: 217, merchant: "To Goldstein Partners", type: "debit", amount: -2700.0, currency: "USD", date: "Yesterday", category: "Transfer", status: "success", method: "Bank transfer", reference: "GOLD-WIRE-OUT-0705" },
+  { id: 218, merchant: "Starbucks", type: "debit", amount: -7.2, currency: "GBP", date: "Yesterday", category: "Food", status: "success", method: card.GBP, reference: "SBUX-0705-8812" },
+  { id: 219, merchant: "Spotify", type: "debit", amount: -9.99, currency: "GBP", date: "Yesterday", category: "Entertainment", status: "success", method: card.GBP, reference: "SPOT-0705-4471" },
+  // Jul 4
+  // GBP: +1800 in, -1800 out → net 0. Small GBP spend: -19.99 (Amazon) + -2.99 (fee) = -22.98.
+  // EUR small spend: -11.80 (Bolt Food).
+  { id: 208, merchant: "Invoice — Stratford Studio", type: "credit", amount: 1800.0, currency: "GBP", date: "Jul 4", category: "Income", status: "success", method: "Bank transfer", reference: "STRAT-INV-0704-19" },
+  { id: 209, merchant: "To Stratford Studio (Deposit)", type: "debit", amount: -1800.0, currency: "GBP", date: "Jul 4", category: "Transfer", status: "success", method: "Bank transfer", reference: "STRAT-DEP-0704-19" },
+  { id: 210, merchant: "Amazon", type: "debit", amount: -19.99, currency: "GBP", date: "Jul 4", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0704-5512" },
+  { id: 211, merchant: "Bolt Food", type: "debit", amount: -11.8, currency: "EUR", date: "Jul 4", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0704-0041" },
+  { id: 212, merchant: "Card maintenance fee", type: "debit", amount: -2.99, currency: "GBP", date: "Jul 4", category: "Fees", status: "success", method: "Service charge", reference: "FEE-CARD-0704" },
+  // Jul 3
+  { id: 204, merchant: "From Mia Larsson", type: "credit", amount: 55.0, currency: "EUR", date: "Jul 3", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MLARSSON-0703" },
+  { id: 205, merchant: "Bolt Food", type: "debit", amount: -11.8, currency: "EUR", date: "Jul 3", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0703-0041" },
+  { id: 206, merchant: "Spotify", type: "debit", amount: -9.99, currency: "GBP", date: "Jul 3", category: "Entertainment", status: "success", method: card.GBP, reference: "SPOT-0703-2291" },
+  { id: 207, merchant: "From Olivia Schmidt", type: "credit", amount: 200.0, currency: "EUR", date: "Jul 3", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-OSCHMIDT-0703" },
+  // Jul 2
+  { id: 200, merchant: "Amazon", type: "debit", amount: -27.49, currency: "GBP", date: "Jul 2", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0702-8812" },
+  { id: 201, merchant: "From Felix Weber", type: "credit", amount: 80.0, currency: "EUR", date: "Jul 2", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-FWEBER-0702" },
+  { id: 202, merchant: "TfL", type: "debit", amount: -9.4, currency: "GBP", date: "Jul 2", category: "Transport", status: "success", method: card.GBP, reference: "TFL-0702-5530" },
+  { id: 203, merchant: "Card maintenance fee", type: "debit", amount: -2.99, currency: "GBP", date: "Jul 2", category: "Fees", status: "success", method: "Service charge", reference: "FEE-CARD-0702" },
   // Jul 1
   { id: 192, merchant: "Salary — Northwind Ltd", type: "credit", amount: 2450.0, currency: "GBP", date: "Jul 1", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0701" },
   { id: 193, merchant: "Tesco", type: "debit", amount: -38.14, currency: "GBP", date: "Jul 1", category: "Food", status: "success", method: card.GBP, reference: "TESC-0701-3310" },
