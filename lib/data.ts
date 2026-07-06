@@ -86,7 +86,7 @@ export const wallets: Wallet[] = [
     currency: "EUR",
     symbol: "€",
     name: "Euro",
-    balance: 121.61,
+    balance: 248.37,
     account: "•••• 2554",
     iban: "LT93 3981 8000 0096 2554",
     bic: "DIUALT22XXX",
@@ -97,7 +97,7 @@ export const wallets: Wallet[] = [
     currency: "GBP",
     symbol: "£",
     name: "British Pound",
-    balance: 33.03,
+    balance: 187.54,
     account: "•••• 7731",
     sortCode: "20-18-34",
     accountNo: "58739214",
@@ -108,7 +108,7 @@ export const wallets: Wallet[] = [
     currency: "USD",
     symbol: "$",
     name: "US Dollar",
-    balance: 90.0,
+    balance: 94.20,
     account: "•••• 9902",
     routing: "026009593",
     accountNo: "000123456789",
@@ -122,22 +122,22 @@ const card = { GBP: "Card •••• 7731", EUR: "Card •••• 2554", USD
 export const transactions: Transaction[] = [
   // Today — Jul 6
   // Credits arrive first (early morning bank processing), then debits through the day
-  { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 4500.0, currency: "EUR", date: "Today", time: "08:14", category: "Income", status: "success", method: "Bank transfer", reference: "APEX-INV-0706-001" },
-  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 7000.0, currency: "GBP", date: "Today", time: "08:51", category: "Income", status: "success", method: "Bank transfer", reference: "MERCER-INV-0706-88" },
+  { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 185.0, currency: "EUR", date: "Today", time: "08:14", category: "Income", status: "success", method: "Bank transfer", reference: "APEX-INV-0706-001" },
+  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 210.0, currency: "GBP", date: "Today", time: "08:51", category: "Income", status: "success", method: "Bank transfer", reference: "MERCER-INV-0706-88" },
   { id: 224, merchant: "Deliveroo", type: "debit", amount: -13.4, currency: "EUR", date: "Today", time: "12:33", category: "Food", status: "success", method: card.EUR, reference: "DLVR-0706-0091" },
   { id: 225, merchant: "TfL", type: "debit", amount: -6.8, currency: "GBP", date: "Today", time: "09:07", category: "Transport", status: "success", method: card.GBP, reference: "TFL-0706-2201" },
-  { id: 226, merchant: "Rent — Jul 2026", type: "debit", amount: -950.0, currency: "EUR", date: "Today", time: "10:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "RENT-0706-JUL26" },
+  { id: 226, merchant: "Utilities — Jul 2026", type: "debit", amount: -78.5, currency: "EUR", date: "Today", time: "10:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "UTIL-0706-JUL26" },
   { id: 227, merchant: "Starbucks", type: "debit", amount: -5.6, currency: "GBP", date: "Today", time: "11:20", category: "Food", status: "success", method: card.GBP, reference: "SBUX-0706-0041" },
   // Yesterday — Jul 5
   // Credits: Wire In (USD), VentureTech (EUR) — both arrive early
-  { id: 216, merchant: "Wire In — Goldstein Partners", type: "credit", amount: 2700.0, currency: "USD", date: "Yesterday", time: "07:58", category: "Income", status: "success", method: "Bank transfer", reference: "GOLD-WIRE-IN-0705" },
-  { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 680.0, currency: "EUR", date: "Yesterday", time: "08:22", category: "Transfer", status: "success", method: "Bank transfer", reference: "VT-PAY-IN-0705-332" },
+  { id: 216, merchant: "Wire In — Goldstein Partners", type: "credit", amount: 140.0, currency: "USD", date: "Yesterday", time: "07:58", category: "Income", status: "success", method: "Bank transfer", reference: "GOLD-WIRE-IN-0705" },
+  { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 95.0, currency: "EUR", date: "Yesterday", time: "08:22", category: "Transfer", status: "success", method: "Bank transfer", reference: "VT-PAY-IN-0705-332" },
   { id: 218, merchant: "Starbucks", type: "debit", amount: -7.2, currency: "GBP", date: "Yesterday", time: "09:05", category: "Food", status: "success", method: card.GBP, reference: "SBUX-0705-8812" },
   { id: 217, merchant: "To Anna Kowalski", type: "debit", amount: -120.0, currency: "USD", date: "Yesterday", time: "11:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-AKOWALSKI-0705" },
   { id: 219, merchant: "Spotify", type: "debit", amount: -9.99, currency: "GBP", date: "Yesterday", time: "13:00", category: "Entertainment", status: "success", method: card.GBP, reference: "SPOT-0705-4471" },
   { id: 215, merchant: "Bolt Food", type: "debit", amount: -14.3, currency: "EUR", date: "Yesterday", time: "19:44", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0705-0071" },
   // Jul 4
-  { id: 208, merchant: "Invoice — Stratford Studio", type: "credit", amount: 1800.0, currency: "GBP", date: "Jul 4", time: "08:05", category: "Income", status: "success", method: "Bank transfer", reference: "STRAT-INV-0704-19" },
+  { id: 208, merchant: "Invoice — Stratford Studio", type: "credit", amount: 175.0, currency: "GBP", date: "Jul 4", time: "08:05", category: "Income", status: "success", method: "Bank transfer", reference: "STRAT-INV-0704-19" },
   { id: 209, merchant: "From Klara Nowak", type: "credit", amount: 45.0, currency: "EUR", date: "Jul 4", time: "09:17", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-KNOWAK-0704" },
   { id: 210, merchant: "Amazon", type: "debit", amount: -19.99, currency: "GBP", date: "Jul 4", time: "10:42", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0704-5512" },
   { id: 211, merchant: "Bolt Food", type: "debit", amount: -11.8, currency: "EUR", date: "Jul 4", time: "13:15", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0704-0041" },
@@ -155,7 +155,7 @@ export const transactions: Transaction[] = [
   { id: 203, merchant: "Card maintenance fee", type: "debit", amount: -2.99, currency: "GBP", date: "Jul 2", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-CARD-0702" },
   { id: 229, merchant: "Bolt Food", type: "debit", amount: -9.6, currency: "EUR", date: "Jul 2", time: "19:55", category: "Food", status: "success", method: card.EUR, reference: "BOLT-FOOD-0702-0055" },
   // Jul 1
-  { id: 192, merchant: "Salary — Northwind Ltd", type: "credit", amount: 2450.0, currency: "GBP", date: "Jul 1", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0701" },
+  { id: 192, merchant: "Salary — Northwind Ltd", type: "credit", amount: 245.0, currency: "GBP", date: "Jul 1", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0701" },
   { id: 194, merchant: "From Klara Nowak", type: "credit", amount: 90.0, currency: "EUR", date: "Jul 1", time: "09:33", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-KNOWAK-0701" },
   { id: 193, merchant: "Tesco", type: "debit", amount: -38.14, currency: "GBP", date: "Jul 1", time: "11:47", category: "Food", status: "success", method: card.GBP, reference: "TESC-0701-3310" },
   { id: 195, merchant: "Monthly account fee", type: "debit", amount: -5.0, currency: "GBP", date: "Jul 1", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-MONTH-0701" },
@@ -166,7 +166,7 @@ export const transactions: Transaction[] = [
   { id: 191, merchant: "To Sofia Bauer", type: "debit", amount: -45.0, currency: "EUR", date: "Jun 30", time: "11:22", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-SBAUER-0630" },
   { id: 230, merchant: "Lime", type: "debit", amount: -3.1, currency: "EUR", date: "Jun 30", time: "17:05", category: "Transport", status: "success", method: card.EUR, reference: "LIME-0630-0041" },
   // Jun 28
-  { id: 187, merchant: "Currency Exchange", type: "credit", amount: 290.0, currency: "EUR", date: "Jun 28", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0628-3318", rate: "1 GBP = 1.17 EUR" },
+  { id: 187, merchant: "Currency Exchange", type: "credit", amount: 85.0, currency: "EUR", date: "Jun 28", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0628-3318", rate: "1 GBP = 1.17 EUR" },
   { id: 184, merchant: "From Eva Lindqvist", type: "credit", amount: 70.0, currency: "EUR", date: "Jun 28", time: "10:15", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-ELINDQVIST-0628" },
   { id: 185, merchant: "Zara", type: "debit", amount: -59.99, currency: "EUR", date: "Jun 28", time: "14:30", category: "Shopping", status: "success", method: card.EUR, reference: "ZARA-0628-3301" },
   { id: 186, merchant: "Uber", type: "debit", amount: -14.2, currency: "USD", date: "Jun 28", time: "20:10", category: "Transport", status: "success", method: card.USD, reference: "UBER-0628-9920" },
@@ -187,7 +187,7 @@ export const transactions: Transaction[] = [
   { id: 176, merchant: "Google Play Top-up", type: "debit", amount: -7.99, currency: "GBP", date: "Jun 23", time: "15:00", category: "Top-up", status: "success", method: "Wallet top-up", reference: "TOPUP-GPLAY-0623" },
   { id: 177, merchant: "Bolt", type: "debit", amount: -5.2, currency: "EUR", date: "Jun 23", time: "09:10", category: "Transport", status: "success", method: card.EUR, reference: "BOLT-0623-7714" },
   // Jun 21
-  { id: 171, merchant: "Freelance — Studio X", type: "credit", amount: 950.0, currency: "EUR", date: "Jun 21", time: "08:00", category: "Income", status: "success", method: "Bank transfer", reference: "STUDIOX-INV-45" },
+  { id: 171, merchant: "Freelance — Studio X", type: "credit", amount: 165.0, currency: "EUR", date: "Jun 21", time: "08:00", category: "Income", status: "success", method: "Bank transfer", reference: "STUDIOX-INV-45" },
   { id: 170, merchant: "From Greta Hansen", type: "credit", amount: 85.0, currency: "EUR", date: "Jun 21", time: "09:20", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-GHANSEN-0621" },
   { id: 172, merchant: "AliExpress", type: "debit", amount: -31.6, currency: "USD", date: "Jun 21", time: "16:45", category: "Shopping", status: "success", method: card.USD, reference: "ALI-0621-5590" },
   { id: 173, merchant: "ATM withdrawal fee", type: "debit", amount: -3.5, currency: "EUR", date: "Jun 21", time: "11:30", category: "Fees", status: "success", method: "Service charge", reference: "FEE-ATM-0621" },
@@ -209,7 +209,7 @@ export const transactions: Transaction[] = [
   { id: 162, merchant: "International transfer fee", type: "debit", amount: -4.99, currency: "GBP", date: "Jun 16", time: "14:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-INTL-0616" },
   // Jun 15
   { id: 155, merchant: "From Sophie Dubois", type: "credit", amount: 100.0, currency: "EUR", date: "Jun 15", time: "08:20", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-SDUBOIS-0615" },
-  { id: 156, merchant: "Currency Exchange", type: "credit", amount: 320.0, currency: "USD", date: "Jun 15", time: "09:30", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0615-6610", rate: "1 GBP = 1.27 USD" },
+  { id: 156, merchant: "Currency Exchange", type: "credit", amount: 85.0, currency: "USD", date: "Jun 15", time: "09:30", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0615-6610", rate: "1 GBP = 1.27 USD" },
   { id: 157, merchant: "Nike", type: "debit", amount: -74.99, currency: "EUR", date: "Jun 15", time: "15:45", category: "Shopping", status: "success", method: card.EUR, reference: "NIKE-0615-1190" },
   { id: 158, merchant: "Audible", type: "debit", amount: -7.99, currency: "GBP", date: "Jun 15", time: "13:00", category: "Entertainment", status: "success", method: card.GBP, reference: "AMZ-AUDIBLE-0615" },
   // Jun 13
@@ -234,7 +234,7 @@ export const transactions: Transaction[] = [
   { id: 13, merchant: "Lidl", type: "debit", amount: -28.65, currency: "EUR", date: "Jun 11", time: "18:45", category: "Shopping", status: "success", method: card.EUR, reference: "LIDL-0611-7741" },
   { id: 14, merchant: "Uber", type: "debit", amount: -12.3, currency: "USD", date: "Jun 11", time: "22:10", category: "Transport", status: "success", method: card.USD, reference: "UBER-0611-3320" },
   // Jun 10
-  { id: 15, merchant: "Salary — Northwind Ltd", type: "credit", amount: 2450.0, currency: "GBP", date: "Jun 10", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0610" },
+  { id: 15, merchant: "Salary — Northwind Ltd", type: "credit", amount: 245.0, currency: "GBP", date: "Jun 10", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0610" },
   { id: 16, merchant: "From Hugo Martin", type: "credit", amount: 48.0, currency: "EUR", date: "Jun 10", time: "09:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-HMARTIN-0610" },
   { id: 17, merchant: "App Store", type: "debit", amount: -4.99, currency: "USD", date: "Jun 10", time: "15:00", category: "Shopping", status: "success", method: card.USD, reference: "APPL-APPSTORE-0610" },
   { id: 18, merchant: "Deliveroo", type: "debit", amount: -19.8, currency: "GBP", date: "Jun 10", time: "20:15", category: "Food", status: "success", method: card.GBP, reference: "DLVR-0610-8852" },
@@ -253,10 +253,10 @@ export const transactions: Transaction[] = [
   { id: 29, merchant: "Starbucks", type: "debit", amount: -5.1, currency: "GBP", date: "Jun 8", time: "09:10", category: "Food", status: "success", method: card.GBP, reference: "SBUX-0608-1170" },
   { id: 30, merchant: "International transfer fee", type: "debit", amount: -4.99, currency: "GBP", date: "Jun 8", time: "12:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-INTL-0608" },
   // Jun 7
-  { id: 31, merchant: "Currency Exchange", type: "credit", amount: 345.0, currency: "EUR", date: "Jun 7", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0607-5582", rate: "1 GBP = 1.17 EUR" },
+  { id: 31, merchant: "Currency Exchange", type: "credit", amount: 95.0, currency: "EUR", date: "Jun 7", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0607-5582", rate: "1 GBP = 1.17 EUR" },
   { id: 32, merchant: "From Felix Weber", type: "credit", amount: 55.0, currency: "EUR", date: "Jun 7", time: "10:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-FWEBER-0607" },
   { id: 33, merchant: "To Noah Fischer", type: "debit", amount: -50.0, currency: "USD", date: "Jun 7", time: "14:15", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-NFISCHER-0607" },
-  { id: 34, merchant: "Uniqlo", type: "debit", amount: -78.0, currency: "GBP", date: "Jun 7", time: "16:00", category: "Shopping", status: "success", method: card.GBP, reference: "UNQ-0607-1182" },
+  { id: 34, merchant: "Uniqlo", type: "debit", amount: -38.0, currency: "GBP", date: "Jun 7", time: "16:00", category: "Shopping", status: "success", method: card.GBP, reference: "UNQ-0607-1182" },
   // Jun 6
   { id: 35, merchant: "From Klara Nowak", type: "credit", amount: 110.0, currency: "EUR", date: "Jun 6", time: "08:40", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-KNOWAK-0606" },
   { id: 36, merchant: "Refund — Booking.com", type: "credit", amount: 96.4, currency: "USD", date: "Jun 6", time: "11:00", category: "Travel", status: "success", method: card.USD, reference: "BKNG-RFND-0606" },
@@ -280,15 +280,15 @@ export const transactions: Transaction[] = [
   { id: 50, merchant: "To Anna Kowalski", type: "debit", amount: -90.0, currency: "EUR", date: "Jun 3", time: "13:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-AKOWALSKI-0603" },
   { id: 51, merchant: "Google Play Top-up", type: "debit", amount: -7.99, currency: "GBP", date: "Jun 3", time: "20:00", category: "Top-up", status: "success", method: "Wallet top-up", reference: "TOPUP-GPLAY-0603" },
   // Jun 2
-  { id: 53, merchant: "Freelance — Studio X", type: "credit", amount: 850.0, currency: "EUR", date: "Jun 2", time: "08:00", category: "Income", status: "success", method: "Bank transfer", reference: "STUDIOX-INV-44" },
-  { id: 54, merchant: "Currency Exchange", type: "credit", amount: 260.0, currency: "USD", date: "Jun 2", time: "09:15", category: "Exchange", status: "success", method: "EUR → USD", reference: "FX-0602-2210", rate: "1 EUR = 1.08 USD" },
+  { id: 53, merchant: "Freelance — Studio X", type: "credit", amount: 145.0, currency: "EUR", date: "Jun 2", time: "08:00", category: "Income", status: "success", method: "Bank transfer", reference: "STUDIOX-INV-44" },
+  { id: 54, merchant: "Currency Exchange", type: "credit", amount: 75.0, currency: "USD", date: "Jun 2", time: "09:15", category: "Exchange", status: "success", method: "EUR → USD", reference: "FX-0602-2210", rate: "1 EUR = 1.08 USD" },
   { id: 56, merchant: "From Sophie Dubois", type: "credit", amount: 50.0, currency: "GBP", date: "Jun 2", time: "10:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-SDUBOIS-0602" },
   { id: 55, merchant: "Steam", type: "debit", amount: -29.99, currency: "USD", date: "Jun 2", time: "21:30", category: "Entertainment", status: "success", method: card.USD, reference: "STEAM-0602-5521" },
   { id: 239, merchant: "Starbucks", type: "debit", amount: -6.7, currency: "GBP", date: "Jun 2", time: "08:30", category: "Food", status: "success", method: card.GBP, reference: "SBUX-0602-3301" },
   // Jun 1
   { id: 57, merchant: "From Pavel Horvath", type: "credit", amount: 125.0, currency: "EUR", date: "Jun 1", time: "08:20", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-PHORVATH-0601" },
   { id: 59, merchant: "From Lena Brandt", type: "credit", amount: 40.0, currency: "GBP", date: "Jun 1", time: "09:35", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-LBRANDT-0601" },
-  { id: 58, merchant: "IKEA", type: "debit", amount: -132.4, currency: "EUR", date: "Jun 1", time: "14:00", category: "Shopping", status: "success", method: card.EUR, reference: "IKEA-0601-2240" },
+  { id: 58, merchant: "IKEA", type: "debit", amount: -62.4, currency: "EUR", date: "Jun 1", time: "14:00", category: "Shopping", status: "success", method: card.EUR, reference: "IKEA-0601-2240" },
   { id: 60, merchant: "TfL", type: "debit", amount: -16.6, currency: "GBP", date: "Jun 1", time: "09:00", category: "Transport", status: "success", method: card.GBP, reference: "TFL-0601-8830" },
   // May 31
   { id: 61, merchant: "From Greta Hansen", type: "credit", amount: 95.0, currency: "EUR", date: "May 31", time: "08:55", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-GHANSEN-0531" },
@@ -297,7 +297,7 @@ export const transactions: Transaction[] = [
   { id: 64, merchant: "To Lucas Bianchi", type: "debit", amount: -45.0, currency: "EUR", date: "May 31", time: "15:20", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-LBIANCHI-0531" },
   // May 30
   { id: 65, merchant: "From Mateo Garcia", type: "credit", amount: 180.0, currency: "EUR", date: "May 30", time: "08:10", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MGARCIA-0530" },
-  { id: 66, merchant: "Airbnb", type: "debit", amount: -210.0, currency: "USD", date: "May 30", time: "12:00", category: "Travel", status: "success", method: card.USD, reference: "ABNB-0530-7741" },
+  { id: 66, merchant: "Airbnb", type: "debit", amount: -85.0, currency: "USD", date: "May 30", time: "12:00", category: "Travel", status: "success", method: card.USD, reference: "ABNB-0530-7741" },
   { id: 67, merchant: "Lyca Mobile Top-up", type: "debit", amount: -12.0, currency: "GBP", date: "May 30", time: "16:00", category: "Top-up", status: "success", method: "Mobile top-up", reference: "TOPUP-LYCA-0530" },
   { id: 68, merchant: "Monthly account fee", type: "debit", amount: -5.0, currency: "GBP", date: "May 30", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-MONTH-0530" },
   { id: 69, merchant: "Carrefour", type: "debit", amount: -38.9, currency: "EUR", date: "May 30", time: "19:45", category: "Food", status: "success", method: card.EUR, reference: "CARR-0530-1102" },
@@ -305,14 +305,14 @@ export const transactions: Transaction[] = [
   { id: 70, merchant: "From Marco Rossi", type: "credit", amount: 75.0, currency: "GBP", date: "May 28", time: "08:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MROSSI-0528" },
   { id: 71, merchant: "To David Müller", type: "debit", amount: -60.0, currency: "EUR", date: "May 28", time: "11:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-DMULLER-0528" },
   { id: 72, merchant: "Apple.com", type: "debit", amount: -49.0, currency: "USD", date: "May 28", time: "14:30", category: "Shopping", status: "success", method: card.USD, reference: "APPL-COM-0528" },
-  { id: 73, merchant: "ASOS", type: "debit", amount: -64.5, currency: "GBP", date: "May 28", time: "17:15", category: "Shopping", status: "success", method: card.GBP, reference: "ASOS-0528-7714" },
+  { id: 73, merchant: "ASOS", type: "debit", amount: -34.5, currency: "GBP", date: "May 28", time: "17:15", category: "Shopping", status: "success", method: card.GBP, reference: "ASOS-0528-7714" },
   // May 27
   { id: 74, merchant: "From Noah Fischer", type: "credit", amount: 40.0, currency: "USD", date: "May 27", time: "09:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-NFISCHER-0527" },
   { id: 75, merchant: "Amazon", type: "debit", amount: -42.8, currency: "EUR", date: "May 27", time: "13:40", category: "Shopping", status: "success", method: card.EUR, reference: "AMZ-0527-9914" },
   { id: 76, merchant: "To Sofia Bauer", type: "debit", amount: -55.0, currency: "EUR", date: "May 27", time: "11:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-SBAUER-0527" },
   { id: 77, merchant: "Disney+", type: "debit", amount: -8.99, currency: "GBP", date: "May 27", time: "13:00", category: "Entertainment", status: "success", method: card.GBP, reference: "DSNY-0527-3306" },
   // May 26
-  { id: 78, merchant: "Currency Exchange", type: "credit", amount: 410.0, currency: "EUR", date: "May 26", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0526-9912", rate: "1 GBP = 1.17 EUR" },
+  { id: 78, merchant: "Currency Exchange", type: "credit", amount: 110.0, currency: "EUR", date: "May 26", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0526-9912", rate: "1 GBP = 1.17 EUR" },
   { id: 79, merchant: "From Olivia Schmidt", type: "credit", amount: 130.0, currency: "EUR", date: "May 26", time: "10:15", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-OSCHMIDT-0526" },
   { id: 80, merchant: "Three Top-up", type: "debit", amount: -15.0, currency: "GBP", date: "May 26", time: "12:30", category: "Top-up", status: "success", method: "Mobile top-up", reference: "TOPUP-THREE-0526" },
   { id: 81, merchant: "Audible", type: "debit", amount: -7.99, currency: "GBP", date: "May 26", time: "13:00", category: "Entertainment", status: "success", method: card.GBP, reference: "AMZ-AUDIBLE-0526" },
@@ -327,39 +327,39 @@ export const transactions: Transaction[] = [
   { id: 87, merchant: "Xbox Top-up", type: "debit", amount: -25.0, currency: "USD", date: "May 22", time: "20:00", category: "Top-up", status: "success", method: "Wallet top-up", reference: "TOPUP-XBOX-0522" },
   { id: 88, merchant: "Nike", type: "debit", amount: -89.99, currency: "EUR", date: "May 22", time: "14:30", category: "Shopping", status: "success", method: card.EUR, reference: "NIKE-0522-2230" },
   // May 20
-  { id: 90, merchant: "Salary — Northwind Ltd", type: "credit", amount: 2450.0, currency: "GBP", date: "May 20", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0520" },
+  { id: 90, merchant: "Salary — Northwind Ltd", type: "credit", amount: 245.0, currency: "GBP", date: "May 20", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "NW-PAYROLL-0520" },
   { id: 91, merchant: "From Elena Popov", type: "credit", amount: 140.0, currency: "EUR", date: "May 20", time: "09:15", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-EPOPOV-0520" },
   { id: 92, merchant: "To Noah Fischer", type: "debit", amount: -30.0, currency: "USD", date: "May 20", time: "11:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-NFISCHER-0520" },
   { id: 93, merchant: "H&M", type: "debit", amount: -49.99, currency: "EUR", date: "May 20", time: "16:45", category: "Shopping", status: "success", method: card.EUR, reference: "HM-0520-7782" },
   // May 18
   { id: 94, merchant: "From Mia Larsson", type: "credit", amount: 65.0, currency: "EUR", date: "May 18", time: "08:40", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MLARSSON-0518" },
-  { id: 95, merchant: "Zalando", type: "debit", amount: -73.2, currency: "EUR", date: "May 18", time: "13:20", category: "Shopping", status: "success", method: card.EUR, reference: "ZAL-0518-1190" },
+  { id: 95, merchant: "Zalando", type: "debit", amount: -43.2, currency: "EUR", date: "May 18", time: "13:20", category: "Shopping", status: "success", method: card.EUR, reference: "ZAL-0518-1190" },
   { id: 96, merchant: "App Store", type: "debit", amount: -2.99, currency: "USD", date: "May 18", time: "18:00", category: "Shopping", status: "success", method: card.USD, reference: "APPL-APPSTORE-0518" },
   { id: 97, merchant: "Lebara Top-up", type: "debit", amount: -8.0, currency: "GBP", date: "May 18", time: "11:00", category: "Top-up", status: "success", method: "Mobile top-up", reference: "TOPUP-LEBARA-0518" },
   // May 15
   { id: 98, merchant: "From Sofia Bauer", type: "credit", amount: 150.0, currency: "EUR", date: "May 15", time: "08:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-SBAUER-0515" },
   { id: 99, merchant: "To Lena Brandt", type: "debit", amount: -25.0, currency: "GBP", date: "May 15", time: "12:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-LBRANDT-0515" },
-  { id: 100, merchant: "Eurostar", type: "debit", amount: -89.0, currency: "EUR", date: "May 15", time: "09:45", category: "Travel", status: "success", method: card.EUR, reference: "EURO-0515-1190" },
+  { id: 100, merchant: "Eurostar", type: "debit", amount: -49.0, currency: "EUR", date: "May 15", time: "09:45", category: "Travel", status: "success", method: card.EUR, reference: "EURO-0515-1190" },
   { id: 101, merchant: "Blue Bottle Coffee", type: "debit", amount: -6.2, currency: "USD", date: "May 15", time: "15:10", category: "Food", status: "success", method: card.USD, reference: "BBC-0515-3391" },
   // May 13
   { id: 102, merchant: "From Tomas Novak", type: "credit", amount: 110.0, currency: "EUR", date: "May 13", time: "08:15", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-TNOVAK-0513" },
-  { id: 103, merchant: "Currency Exchange", type: "credit", amount: 230.0, currency: "USD", date: "May 13", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0513-7740", rate: "1 GBP = 1.27 USD" },
+  { id: 103, merchant: "Currency Exchange", type: "credit", amount: 80.0, currency: "USD", date: "May 13", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0513-7740", rate: "1 GBP = 1.27 USD" },
   { id: 105, merchant: "From Mia Larsson", type: "credit", amount: 65.0, currency: "EUR", date: "May 13", time: "10:20", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MLARSSON-0513" },
   { id: 104, merchant: "Decathlon", type: "debit", amount: -44.9, currency: "EUR", date: "May 13", time: "14:00", category: "Shopping", status: "success", method: card.EUR, reference: "DECA-0513-2218" },
   { id: 240, merchant: "Trainline", type: "debit", amount: -18.5, currency: "GBP", date: "May 13", time: "07:35", category: "Transport", status: "success", method: card.GBP, reference: "TRLN-0513-8801" },
   // May 10
   { id: 106, merchant: "From Isabella Conti", type: "credit", amount: 120.0, currency: "EUR", date: "May 10", time: "08:50", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-ICONTI-0510" },
-  { id: 107, merchant: "Lufthansa", type: "debit", amount: -240.0, currency: "EUR", date: "May 10", time: "11:00", category: "Travel", status: "success", method: card.EUR, reference: "LH-0510-5560" },
+  { id: 107, merchant: "Lufthansa", type: "debit", amount: -89.0, currency: "EUR", date: "May 10", time: "11:00", category: "Travel", status: "success", method: card.EUR, reference: "LH-0510-5560" },
   { id: 108, merchant: "Card replacement fee", type: "debit", amount: -7.5, currency: "GBP", date: "May 10", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-REPL-0510" },
   { id: 109, merchant: "Lime", type: "debit", amount: -3.8, currency: "EUR", date: "May 10", time: "17:30", category: "Transport", status: "success", method: card.EUR, reference: "LIME-0510-2204" },
   // May 8
   { id: 110, merchant: "From Jan Kowalczyk", type: "credit", amount: 95.0, currency: "EUR", date: "May 8", time: "08:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-JKOWALCZYK-0508" },
   { id: 111, merchant: "PlayStation Top-up", type: "debit", amount: -30.0, currency: "USD", date: "May 8", time: "21:00", category: "Top-up", status: "success", method: "Wallet top-up", reference: "TOPUP-PSN-0508" },
-  { id: 112, merchant: "Amazon", type: "debit", amount: -61.4, currency: "GBP", date: "May 8", time: "15:20", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0508-3320" },
+  { id: 112, merchant: "Amazon", type: "debit", amount: -41.4, currency: "GBP", date: "May 8", time: "15:20", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0508-3320" },
   { id: 113, merchant: "To Anna Kowalski", type: "debit", amount: -40.0, currency: "EUR", date: "May 8", time: "11:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-AKOWALSKI-0508" },
   // May 6
   { id: 114, merchant: "From Eva Lindqvist", type: "credit", amount: 80.0, currency: "EUR", date: "May 6", time: "09:10", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-ELINDQVIST-0506" },
-  { id: 115, merchant: "MediaMarkt", type: "debit", amount: -319.0, currency: "EUR", date: "May 6", time: "12:45", category: "Shopping", status: "success", method: card.EUR, reference: "MM-0506-8841" },
+  { id: 115, merchant: "MediaMarkt", type: "debit", amount: -89.0, currency: "EUR", date: "May 6", time: "12:45", category: "Shopping", status: "success", method: card.EUR, reference: "MM-0506-8841" },
   { id: 116, merchant: "To Noah Fischer", type: "debit", amount: -30.0, currency: "USD", date: "May 6", time: "16:00", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-OUT-NFISCHER-0506" },
   { id: 117, merchant: "Cinema City", type: "debit", amount: -24.0, currency: "GBP", date: "May 6", time: "19:30", category: "Entertainment", status: "success", method: card.GBP, reference: "CINE-0506-1173" },
   // May 4
@@ -368,14 +368,14 @@ export const transactions: Transaction[] = [
   { id: 120, merchant: "iTunes", type: "debit", amount: -9.99, currency: "USD", date: "May 4", time: "22:00", category: "Entertainment", status: "success", method: card.USD, reference: "APPL-ITUNES-0504" },
   // May 3
   { id: 121, merchant: "From David Müller", type: "credit", amount: 110.0, currency: "EUR", date: "May 3", time: "08:35", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-DMULLER-0503" },
-  { id: 122, merchant: "Shell", type: "debit", amount: -58.4, currency: "GBP", date: "May 3", time: "08:10", category: "Transport", status: "success", method: card.GBP, reference: "SHEL-0503-9920" },
+  { id: 122, merchant: "Shell", type: "debit", amount: -38.4, currency: "GBP", date: "May 3", time: "08:10", category: "Transport", status: "success", method: card.GBP, reference: "SHEL-0503-9920" },
   { id: 123, merchant: "Deliveroo", type: "debit", amount: -22.1, currency: "GBP", date: "May 3", time: "20:30", category: "Food", status: "success", method: card.GBP, reference: "DLVR-0503-4418" },
   // May 2
   { id: 124, merchant: "From Greta Hansen", type: "credit", amount: 90.0, currency: "EUR", date: "May 2", time: "08:45", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-GHANSEN-0502" },
   { id: 125, merchant: "Dividend — Vanguard", type: "credit", amount: 37.5, currency: "GBP", date: "May 2", time: "07:00", category: "Income", status: "success", method: "Bank transfer", reference: "DIV-VAN-0502" },
-  { id: 126, merchant: "Apple Store", type: "debit", amount: -199.0, currency: "USD", date: "May 2", time: "14:00", category: "Shopping", status: "success", method: card.USD, reference: "APPL-STORE-0502" },
+  { id: 126, merchant: "Apple Store", type: "debit", amount: -49.0, currency: "USD", date: "May 2", time: "14:00", category: "Shopping", status: "success", method: card.USD, reference: "APPL-STORE-0502" },
   // May 1
-  { id: 127, merchant: "Currency Exchange", type: "credit", amount: 300.0, currency: "USD", date: "May 1", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0501-7731", rate: "1 GBP = 1.27 USD" },
+  { id: 127, merchant: "Currency Exchange", type: "credit", amount: 90.0, currency: "USD", date: "May 1", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0501-7731", rate: "1 GBP = 1.27 USD" },
   { id: 128, merchant: "From Mateo Garcia", type: "credit", amount: 150.0, currency: "EUR", date: "May 1", time: "10:30", category: "Transfer", status: "success", method: "Bank transfer", reference: "P2P-IN-MGARCIA-0501" },
   { id: 129, merchant: "Tesco", type: "debit", amount: -36.75, currency: "GBP", date: "May 1", time: "18:15", category: "Food", status: "success", method: card.GBP, reference: "TESC-0501-2200" },
   { id: 130, merchant: "ATM withdrawal fee", type: "debit", amount: -2.75, currency: "GBP", date: "May 1", time: "11:00", category: "Fees", status: "success", method: "Service charge", reference: "FEE-ATM-0501" },
