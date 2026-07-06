@@ -1,15 +1,32 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SkeletonList } from "@/components/SkeletonLoader";
 import { PageTransition } from "@/components/PageTransition";
 import { categoryMeta } from "@/components/categoryIcon";
-import { transactions, formatAmount, type Transaction } from "@/lib/data";
+import {
+  transactions,
+  formatAmount,
+  type Transaction,
+  type CurrencyCode,
+  currencySymbol,
+} from "@/lib/data";
+
+/** Build a lookup map once for O(1) access by id. */
+const txById = new Map<number, Transaction>(transactions.map((t) => [t.id, t]));
 
 type Filter = "All" | "Received" | "Sent" | "Exchange" | "Fees";
 const filters: Filter[] = ["All", "Received", "Sent", "Exchange", "Fees"];
+
+type WalletTab = "All" | CurrencyCode;
+const walletTabs: { label: string; value: WalletTab }[] = [
+  { label: "All wallets", value: "All" },
+  { label: `${currencySymbol.EUR} EUR`, value: "EUR" },
+  { label: `${currencySymbol.GBP} GBP`, value: "GBP" },
+  { label: `${currencySymbol.USD} USD`, value: "USD" },
+];
 
 function matchesFilter(tx: Transaction, filter: Filter): boolean {
   if (filter === "All") return true;
@@ -30,6 +47,7 @@ export default function HistoryPage() {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("All");
+  const [walletTab, setWalletTab] = useState<WalletTab>("All");
   const [expanded, setExpanded] = useState<number | null>(null);
 
   useEffect(() => {
@@ -37,9 +55,17 @@ export default function HistoryPage() {
     return () => clearTimeout(t);
   }, []);
 
+  // Reset filter & expanded when switching wallet tab
+  const handleWalletTab = (tab: WalletTab) => {
+    setWalletTab(tab);
+    setExpanded(null);
+    setQuery("");
+  };
+
   const grouped = useMemo(() => {
     const filtered = transactions.filter(
       (tx) =>
+        (walletTab === "All" || tx.currency === walletTab) &&
         matchesFilter(tx, filter) &&
         tx.merchant.toLowerCase().includes(query.toLowerCase())
     );
@@ -53,12 +79,11 @@ export default function HistoryPage() {
       }
       map.get(key)!.push(tx);
     }
-    // Sort each group by time descending (most recent first within the day)
     return order.map((k) => ({
       date: k,
       items: map.get(k)!.slice().sort((a, b) => b.time.localeCompare(a.time)),
     }));
-  }, [query, filter]);
+  }, [query, filter, walletTab]);
 
   return (
     <PageTransition>
@@ -66,6 +91,23 @@ export default function HistoryPage() {
         <h1 className="text-xl font-bold tracking-tightest text-primary">
           Transactions
         </h1>
+
+        {/* Wallet tabs */}
+        <div className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5">
+          {walletTabs.map((tab) => (
+            <button
+              key={tab.value}
+              onClick={() => handleWalletTab(tab.value)}
+              className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors active:scale-95 ${
+                walletTab === tab.value
+                  ? "bg-primary text-base"
+                  : "bg-surface text-secondary"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
         {/* Search */}
         <div className="relative mt-4">
@@ -76,7 +118,11 @@ export default function HistoryPage() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search transactions"
+            placeholder={
+              walletTab === "All"
+                ? "Search all transactions"
+                : `Search ${walletTab} transactions`
+            }
             className="h-12 w-full rounded-xl border border-border bg-surface pl-11 pr-4 text-sm text-primary placeholder:text-tertiary outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
           />
         </div>
@@ -118,6 +164,19 @@ export default function HistoryPage() {
                     const Icon = meta.icon;
                     const open = expanded === tx.id;
                     const isCredit = tx.type === "credit";
+                    // Resolve related debit rows for credits
+                    const relatedDebits =
+                      isCredit && tx.relatedIds
+                        ? tx.relatedIds
+                            .map((id) => txById.get(id))
+                            .filter((t): t is Transaction => !!t)
+                        : [];
+                    // For a debit: find its parent credit
+                    const parentCredit =
+                      !isCredit && tx.creditId
+                        ? txById.get(tx.creditId)
+                        : undefined;
+
                     return (
                       <div key={tx.id}>
                         <button
@@ -183,6 +242,102 @@ export default function HistoryPage() {
                                   <DetailRow label="Exchange rate">
                                     {tx.rate}
                                   </DetailRow>
+                                )}
+
+                                {/* ── Spending trail for credits ── */}
+                                {isCredit && relatedDebits.length > 0 && (
+                                  <div className="mt-3 border-t border-border/50 pt-3">
+                                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-tertiary">
+                                      Funded spending
+                                    </p>
+                                    <div className="space-y-2">
+                                      {relatedDebits.map((debit) => {
+                                        const dm =
+                                          categoryMeta[debit.category];
+                                        const DIcon = dm.icon;
+                                        return (
+                                          <div
+                                            key={debit.id}
+                                            className="flex items-center gap-2"
+                                          >
+                                            <span
+                                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${dm.tint}`}
+                                            >
+                                              <DIcon
+                                                size={13}
+                                                className={dm.fg}
+                                              />
+                                            </span>
+                                            <div className="min-w-0 flex-1">
+                                              <p className="truncate text-xs text-primary">
+                                                {debit.merchant}
+                                              </p>
+                                              <p className="text-[10px] text-tertiary">
+                                                {debit.time} · {debit.category}
+                                              </p>
+                                            </div>
+                                            <p className="font-mono text-xs text-primary">
+                                              −
+                                              {formatAmount(
+                                                debit.amount,
+                                                debit.currency
+                                              )}
+                                            </p>
+                                          </div>
+                                        );
+                                      })}
+                                      {/* Net summary */}
+                                      <div className="flex items-center justify-between border-t border-border/40 pt-2">
+                                        <span className="text-[10px] text-tertiary">
+                                          Net after spending
+                                        </span>
+                                        <span className="font-mono text-xs font-semibold text-success">
+                                          +
+                                          {formatAmount(
+                                            tx.amount +
+                                              relatedDebits.reduce(
+                                                (s, d) => s + d.amount,
+                                                0
+                                              ),
+                                            tx.currency
+                                          )}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {/* ── Parent credit for debits ── */}
+                                {!isCredit && parentCredit && (
+                                  <div className="mt-3 border-t border-border/50 pt-3">
+                                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-tertiary">
+                                      Funded by
+                                    </p>
+                                    <div className="flex items-center gap-2">
+                                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-success/15">
+                                        <ArrowUpRight
+                                          size={13}
+                                          className="text-success"
+                                        />
+                                      </span>
+                                      <div className="min-w-0 flex-1">
+                                        <p className="truncate text-xs text-primary">
+                                          {parentCredit.merchant}
+                                        </p>
+                                        <p className="text-[10px] text-tertiary">
+                                          {parentCredit.date} ·{" "}
+                                          {parentCredit.time}
+                                        </p>
+                                      </div>
+                                      <p className="font-mono text-xs text-success">
+                                        +
+                                        {formatAmount(
+                                          parentCredit.amount,
+                                          parentCredit.currency
+                                        )}
+                                      </p>
+                                    </div>
+                                  </div>
                                 )}
                               </div>
                             </motion.div>
