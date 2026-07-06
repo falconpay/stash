@@ -133,15 +133,15 @@ export const transactions: Transaction[] = [
   // EUR credit 220 → spent on Wire Transfer (226) + Wire Transfer (224)
   { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 2616.44, currency: "EUR", date: "Today", time: "08:14", category: "Income", status: "success", method: "Sepa transfer", reference: "APEX-INV-0706-001", relatedIds: [226, 224] },
   // GBP credit 222 → spent on TfL (225) + Card Top-up (227)
-  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 3264.63, currency: "GBP", date: "Today", time: "08:51", category: "Income", status: "success", method: "Sepa transfer", reference: "MERCER-INV-0706-88", relatedIds: [225, 227] },
+  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 8264.63, currency: "GBP", date: "Today", time: "08:51", category: "Income", status: "success", method: "Chaps transfer", reference: "MERCER-INV-0706-88", relatedIds: [225, 227] },
   // { id: 224, merchant: "Wire Transfer — Outbound", type: "debit", amount: -15557.52, currency: "EUR", date: "Today", time: "12:33", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-OUT-0706-0091", creditId: 220 },
   { id: 225, merchant: "TfL Oyster Card Top-up", type: "debit", amount: -562.14, currency: "GBP", date: "Today", time: "09:07", category: "Top-up", status: "success", method: card.GBP, reference: "TFL-0706-2201", creditId: 222 },
   { id: 226, merchant: "Wire Transfer — Utility Payment", type: "debit", amount: -2487.39, currency: "EUR", date: "Today", time: "10:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-UTIL-0706-JUL26", creditId: 220 },
-  { id: 227, merchant: "Visa Card Top-up", type: "debit", amount: -10142.15, currency: "GBP", date: "Today", time: "11:20", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0706", creditId: 222 },
+  { id: 227, merchant: "Visa Card Top-up", type: "debit", amount: -8142.15, currency: "GBP", date: "Today", time: "11:20", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0706", creditId: 222 },
   // Yesterday — Jul 5
   // Credits: Wire In (USD), VentureTech (EUR) — both arrive early
   // USD credit 216 → spent on Wire transfer to Anna (217)
-  { id: 216, merchant: "Wire In — Goldstein Partners", type: "credit", amount: 5091.23, currency: "USD", date: "Yesterday", time: "07:58", category: "Income", status: "success", method: "Sepa transfer", reference: "GOLD-WIRE-IN-0705", relatedIds: [217] },
+  { id: 216, merchant: "To Goldstein Partners", type: "credit", amount: 5091.23, currency: "USD", date: "Yesterday", time: "07:58", category: "Income", status: "success", method: "Sepa transfer", reference: "GOLD-WIRE-IN-0705", relatedIds: [217] },
   // EUR credit 214 → spent on services payment (215)
   { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 2967.12, currency: "EUR", date: "Yesterday", time: "08:22", category: "Transfer", status: "success", method: "Sepa transfer", reference: "VT-PAY-IN-0705-332", relatedIds: [215] },
   { id: 218, merchant: "Mastercard Top-up", type: "debit", amount: -749.52, currency: "GBP", date: "Yesterday", time: "09:05", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0705" },
@@ -165,7 +165,7 @@ export const transactions: Transaction[] = [
   { id: 228, merchant: "Rail Season Ticket", type: "debit", amount: -899.43, currency: "GBP", date: "Jul 3", time: "09:18", category: "Transport", status: "success", method: card.GBP, reference: "RAIL-SEASON-0703" },
   // Jul 2
   // EUR credit 201 → Renovation deposit (229)
-  { id: 201, merchant: "Wire In — Felix Weber", type: "credit", amount: 5421.92, currency: "EUR", date: "Jul 2", time: "08:40", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-FWEBER-0702", relatedIds: [229] },
+  { id: 201, merchant: "To Felix Weber", type: "credit", amount: 5421.92, currency: "EUR", date: "Jul 2", time: "08:40", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-FWEBER-0702", relatedIds: [229] },
   { id: 200, merchant: "Amazon Bulk Order", type: "debit", amount: -1761.38, currency: "GBP", date: "Jul 2", time: "10:15", category: "Shopping", status: "success", method: card.GBP, reference: "AMZ-0702-8812" },
   { id: 202, merchant: "Car Insurance Payment", type: "debit", amount: -1161.76, currency: "GBP", date: "Jul 2", time: "08:52", category: "Transfer", status: "success", method: card.GBP, reference: "INS-CAR-0702-5530" },
   { id: 203, merchant: "Card maintenance fee", type: "debit", amount: -100.0, currency: "GBP", date: "Jul 2", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-CARD-0702" },
@@ -179,7 +179,7 @@ export const transactions: Transaction[] = [
   { id: 195, merchant: "Monthly account fee", type: "debit", amount: 0.0, currency: "GBP", date: "Jul 1", time: "00:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-MONTH-0701", creditId: 192 },
   // Jun 30
   // USD credit 188 → Card top-up (190)
-  { id: 188, merchant: "Wire In — Daniel Cohen", type: "credit", amount: 7000.0, currency: "USD", date: "Jun 30", time: "08:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-IN-DCOHEN-0630", relatedIds: [190] },
+  { id: 188, merchant: "To Daniel Cohen", type: "credit", amount: 7000.0, currency: "USD", date: "Jun 30", time: "08:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-IN-DCOHEN-0630", relatedIds: [190] },
   { id: 189, merchant: "Prepaid Card Top-up", type: "debit", amount: 0.0, currency: "GBP", date: "Jun 30", time: "19:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-PRE-0630" },
   { id: 190, merchant: "Mastercard Prepaid Top-up", type: "debit", amount: -2452.37, currency: "USD", date: "Jun 30", time: "13:00", category: "Top-up", status: "success", method: card.USD, reference: "TOPUP-MC-0630", creditId: 188 },
   { id: 191, merchant: "To Sofia Bauer", type: "debit", amount: -3316.52, currency: "EUR", date: "Jun 30", time: "11:22", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-SBAUER-0630" },
@@ -193,7 +193,7 @@ export const transactions: Transaction[] = [
   { id: 231, merchant: "Annual Insurance Premium", type: "debit", amount: -956.53, currency: "GBP", date: "Jun 28", time: "08:35", category: "Transfer", status: "success", method: card.GBP, reference: "INS-ANN-0628" },
   // Jun 26
   // EUR credit 181 → Rent payment (182) + services (232)
-  { id: 181, merchant: "Wire In — Hugo Martin", type: "credit", amount: 4106.85, currency: "EUR", date: "Jun 26", time: "09:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-HMARTIN-0626", relatedIds: [182, 232] },
+  { id: 181, merchant: "To Hugo Martin", type: "credit", amount: 4106.85, currency: "EUR", date: "Jun 26", time: "09:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-HMARTIN-0626", relatedIds: [182, 232] },
   { id: 182, merchant: "Rent Payment — Jun", type: "debit", amount: -4027.20, currency: "EUR", date: "Jun 26", time: "17:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "RENT-0626-5541", creditId: 181 },
   { id: 183, merchant: "Google Workspace Annual", type: "debit", amount: -787.0, currency: "GBP", date: "Jun 26", time: "13:00", category: "Transfer", status: "success", method: card.GBP, reference: "GSUITE-0626-2281" },
   { id: 232, merchant: "SaaS Services Payment", type: "debit", amount: -2250.49, currency: "EUR", date: "Jun 26", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "SAAS-PAY-0626", creditId: 181 },
@@ -205,7 +205,7 @@ export const transactions: Transaction[] = [
   { id: 233, merchant: "Pension Contribution", type: "debit", amount: -1499.05, currency: "GBP", date: "Jun 25", time: "13:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "PENSION-0625" },
   // Jun 23
   // EUR credit 174 → Tax payment (177)
-  { id: 174, merchant: "Wire In — Tomas Novak", type: "credit", amount: 5860.27, currency: "EUR", date: "Jun 23", time: "08:55", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-TNOVAK-0623", relatedIds: [177] },
+  { id: 174, merchant: "To Tomas Novak", type: "credit", amount: 5860.27, currency: "EUR", date: "Jun 23", time: "08:55", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-TNOVAK-0623", relatedIds: [177] },
   { id: 175, merchant: "Equipment Purchase", type: "debit", amount: -1948.76, currency: "GBP", date: "Jun 23", time: "11:30", category: "Shopping", status: "success", method: card.GBP, reference: "EQUIP-0623-8830" },
   { id: 176, merchant: "Prepaid Wallet Top-up", type: "debit", amount: -1124.28, currency: "GBP", date: "Jun 23", time: "15:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-WALLET-0623" },
   { id: 177, merchant: "Tax Payment — Q2 2026", type: "debit", amount: -7000.0, currency: "EUR", date: "Jun 23", time: "09:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "TAX-Q2-0623", creditId: 174 },
@@ -218,7 +218,7 @@ export const transactions: Transaction[] = [
   { id: 234, merchant: "Office Rent — Jun", type: "debit", amount: -3434.96, currency: "EUR", date: "Jun 21", time: "19:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "OFFRENT-0621-3391", creditId: 171 },
   // Jun 20
   // EUR credit 167 (standalone large transfer)
-  { id: 167, merchant: "Wire In — Elena Popov", type: "credit", amount: 4369.86, currency: "EUR", date: "Jun 20", time: "09:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-EPOPOV-0620" },
+  { id: 167, merchant: "To Elena Popov", type: "credit", amount: 4369.86, currency: "EUR", date: "Jun 20", time: "09:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-EPOPOV-0620" },
   { id: 168, merchant: "Mastercard Top-up", type: "debit", amount: -936.90, currency: "GBP", date: "Jun 20", time: "12:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0620" },
   { id: 169, merchant: "Council Tax Payment", type: "debit", amount: -674.57, currency: "GBP", date: "Jun 20", time: "08:47", category: "Transfer", status: "success", method: "Sepa transfer", reference: "CTAX-0620-1102" },
   { id: 235, merchant: "Rail Season Ticket Renewal", type: "debit", amount: -1574.0, currency: "GBP", date: "Jun 20", time: "16:20", category: "Transport", status: "success", method: card.GBP, reference: "RAIL-RENEW-0620" },
@@ -230,7 +230,7 @@ export const transactions: Transaction[] = [
   { id: 166, merchant: "Currency Exchange Fee", type: "debit", amount: -1302.92, currency: "EUR", date: "Jun 18", time: "17:40", category: "Fees", status: "success", method: "Service charge", reference: "FX-FEE-0618", creditId: 163 },
   // Jun 16
   // EUR credit 159 (standalone large deposit)
-  { id: 159, merchant: "Wire In — Jan Kowalczyk", type: "credit", amount: 4983.56, currency: "EUR", date: "Jun 16", time: "08:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0616" },
+  { id: 159, merchant: "To Jan Kowalczyk", type: "credit", amount: 4983.56, currency: "EUR", date: "Jun 16", time: "08:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0616" },
   { id: 160, merchant: "To Lena Brandt", type: "debit", amount: -1686.43, currency: "GBP", date: "Jun 16", time: "14:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-LBRANDT-0616" },
   { id: 161, merchant: "Restaurant Group Payment", type: "debit", amount: -1144.44, currency: "USD", date: "Jun 16", time: "19:20", category: "Food", status: "success", method: card.USD, reference: "RESTGRP-0616-7720" },
   { id: 162, merchant: "International transfer fee", type: "debit", amount: -100.0, currency: "GBP", date: "Jun 16", time: "14:01", category: "Fees", status: "success", method: "Service charge", reference: "FEE-INTL-0616" },
@@ -243,13 +243,13 @@ export const transactions: Transaction[] = [
   { id: 158, merchant: "Visa Debit Top-up", type: "debit", amount: -749.52, currency: "GBP", date: "Jun 15", time: "13:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0615" },
   // Jun 13
   // EUR credit 151 → Staff bonus (154)
-  { id: 151, merchant: "Wire In — David Müller", type: "credit", amount: 7000.0, currency: "EUR", date: "Jun 13", time: "08:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0613", relatedIds: [154] },
+  { id: 151, merchant: "To David Müller", type: "credit", amount: 7000.0, currency: "EUR", date: "Jun 13", time: "08:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0613", relatedIds: [154] },
   { id: 152, merchant: "AWS Cloud Services", type: "debit", amount: 0.0, currency: "USD", date: "Jun 13", time: "21:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "AWS-SVC-0613" },
   { id: 153, merchant: "Corporate Travel Booking", type: "debit", amount: -1536.52, currency: "GBP", date: "Jun 13", time: "07:40", category: "Travel", status: "success", method: card.GBP, reference: "CORP-TRVL-0613" },
   { id: 154, merchant: "Staff Bonus Payment", type: "debit", amount: -7000.0, currency: "EUR", date: "Jun 13", time: "18:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "BONUS-0613-9901", creditId: 151 },
   // Jun 12
   // EUR credits 1+3 → Investment fund (13)
-  { id: 1, merchant: "Wire In — Olivia Schmidt", type: "credit", amount: 3493.15, currency: "EUR", date: "Jun 12", time: "08:05", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-OSCHMIDT-0612", relatedIds: [13] },
+  { id: 1, merchant: "To Olivia Schmidt", type: "credit", amount: 3493.15, currency: "EUR", date: "Jun 12", time: "08:05", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-OSCHMIDT-0612", relatedIds: [13] },
   { id: 3, merchant: "Deposit — Sofia Bauer", type: "credit", amount: 2090.41, currency: "EUR", date: "Jun 12", time: "08:45", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-SBAUER-0612" },
   // GBP credit 5 → Vendor payments (2,4,6,7)
   { id: 5, merchant: "From James Carter", type: "credit", amount: 6753.71, currency: "GBP", date: "Jun 12", time: "09:10", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-IN-JCARTER-0612", relatedIds: [7, 6, 2, 4] },
@@ -262,7 +262,7 @@ export const transactions: Transaction[] = [
   // GBP credit 8 → To James (10) + Wallet top-up (11)
   { id: 8, merchant: "Deposit — Liam O'Brien", type: "credit", amount: 3223.58, currency: "GBP", date: "Jun 11", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-LOBRIEN-0611", relatedIds: [10, 11] },
   // EUR credit 12 → Investment (13)
-  { id: 12, merchant: "Wire In — Mia Larsson", type: "credit", amount: 863.01, currency: "EUR", date: "Jun 11", time: "09:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MLARSSON-0611", relatedIds: [13] },
+  { id: 12, merchant: "To Mia Larsson", type: "credit", amount: 863.01, currency: "EUR", date: "Jun 11", time: "09:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MLARSSON-0611", relatedIds: [13] },
   { id: 9, merchant: "MacBook Pro Purchase", type: "debit", amount: -949.48, currency: "USD", date: "Jun 11", time: "14:20", category: "Shopping", status: "success", method: card.USD, reference: "APPL-MBP-0611" },
   { id: 10, merchant: "To James Carter", type: "debit", amount: -749.52, currency: "GBP", date: "Jun 11", time: "11:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-JCARTER-0611", creditId: 8 },
   { id: 11, merchant: "Visa Card Top-up", type: "debit", amount: -562.14, currency: "GBP", date: "Jun 11", time: "16:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0611", creditId: 8 },
@@ -271,13 +271,13 @@ export const transactions: Transaction[] = [
   // GBP credit 15 → Supplier (18)
   { id: 15, merchant: "Salary — Northwind Ltd", type: "credit", amount: 7000.0, currency: "GBP", date: "Jun 10", time: "07:00", category: "Income", status: "success", method: "Sepa transfer", reference: "NW-PAYROLL-0610", relatedIds: [18] },
   // EUR credit 16 → Marketing services (19)
-  { id: 16, merchant: "Wire In — Hugo Martin", type: "credit", amount: 1476.71, currency: "EUR", date: "Jun 10", time: "09:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-HMARTIN-0610", relatedIds: [19] },
+  { id: 16, merchant: "To Hugo Martin", type: "credit", amount: 1476.71, currency: "EUR", date: "Jun 10", time: "09:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-HMARTIN-0610", relatedIds: [19] },
   { id: 17, merchant: "Software License Purchase", type: "debit", amount: -1185.31, currency: "USD", date: "Jun 10", time: "15:00", category: "Shopping", status: "success", method: card.USD, reference: "SWLIC-0610-9900" },
   { id: 18, merchant: "Supplier Invoice Payment", type: "debit", amount: -1948.76, currency: "GBP", date: "Jun 10", time: "20:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "SUPP-INV-0610", creditId: 15 },
   { id: 19, merchant: "Marketing Agency Services", type: "debit", amount: -3316.52, currency: "EUR", date: "Jun 10", time: "11:45", category: "Transfer", status: "success", method: "Sepa transfer", reference: "MKT-SVC-0610", creditId: 16 },
   // Jun 9
   // EUR credits 20+21 → Supplier (24) + Card top-up (25)
-  { id: 20, merchant: "Wire In — David Müller", type: "credit", amount: 5597.26, currency: "EUR", date: "Jun 9", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0609", relatedIds: [24, 25] },
+  { id: 20, merchant: "To David Müller", type: "credit", amount: 5597.26, currency: "EUR", date: "Jun 9", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0609", relatedIds: [24, 25] },
   { id: 21, merchant: "Deposit — Elena Popov", type: "credit", amount: 3230.14, currency: "EUR", date: "Jun 9", time: "09:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-EPOPOV-0609" },
   { id: 22, merchant: "PlayStation Store Top-up", type: "debit", amount: -1226.19, currency: "USD", date: "Jun 9", time: "18:30", category: "Top-up", status: "success", method: card.USD, reference: "TOPUP-PSN-0609" },
   { id: 23, merchant: "Annual SaaS Subscription", type: "debit", amount: -1961.90, currency: "USD", date: "Jun 9", time: "13:00", category: "Transfer", status: "success", method: card.USD, reference: "SAAS-SUB-0609" },
@@ -293,12 +293,12 @@ export const transactions: Transaction[] = [
   // Jun 7
   // EUR exchange credit 31 + EUR credit 32 (standalones)
   { id: 31, merchant: "Currency Exchange", type: "credit", amount: 4106.85, currency: "EUR", date: "Jun 7", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0607-5582", rate: "1 GBP = 1.17 EUR" },
-  { id: 32, merchant: "Wire In — Felix Weber", type: "credit", amount: 1739.73, currency: "EUR", date: "Jun 7", time: "10:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-FWEBER-0607" },
+  { id: 32, merchant: "To Felix Weber", type: "credit", amount: 1739.73, currency: "EUR", date: "Jun 7", time: "10:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-FWEBER-0607" },
   { id: 33, merchant: "To Noah Fischer", type: "debit", amount: -1716.66, currency: "USD", date: "Jun 7", time: "14:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-NFISCHER-0607" },
   { id: 34, merchant: "Office Equipment Purchase", type: "debit", amount: -1424.09, currency: "GBP", date: "Jun 7", time: "16:00", category: "Shopping", status: "success", method: card.GBP, reference: "OFFEQUIP-0607" },
   // Jun 6
   // EUR credit 35 (standalone)
-  { id: 35, merchant: "Wire In — Klara Nowak", type: "credit", amount: 2967.12, currency: "EUR", date: "Jun 6", time: "08:40", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-KNOWAK-0606" },
+  { id: 35, merchant: "To Klara Nowak", type: "credit", amount: 2967.12, currency: "EUR", date: "Jun 6", time: "08:40", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-KNOWAK-0606" },
   // USD credit 36 → Card top-ups (38+39)
   { id: 36, merchant: "Refund — Booking.com", type: "credit", amount: 4978.95, currency: "USD", date: "Jun 6", time: "11:00", category: "Travel", status: "success", method: card.USD, reference: "BKNG-RFND-0606", relatedIds: [38, 39] },
   // GBP credit 37 (standalone)
@@ -307,20 +307,20 @@ export const transactions: Transaction[] = [
   { id: 39, merchant: "Hotel Group Payment", type: "debit", amount: -858.33, currency: "USD", date: "Jun 6", time: "19:30", category: "Travel", status: "success", method: card.USD, reference: "HOTEL-0606-3391", creditId: 36 },
   // Jun 5
   // EUR credits 40+43 (standalones)
-  { id: 40, merchant: "Wire In — Isabella Conti", type: "credit", amount: 4369.86, currency: "EUR", date: "Jun 5", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-ICONTI-0605" },
+  { id: 40, merchant: "To Isabella Conti", type: "credit", amount: 4369.86, currency: "EUR", date: "Jun 5", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-ICONTI-0605" },
   { id: 43, merchant: "Deposit — Sophie Dubois", type: "credit", amount: 2090.41, currency: "EUR", date: "Jun 5", time: "09:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-SDUBOIS-0605" },
   { id: 41, merchant: "Mastercard Top-up", type: "debit", amount: -1311.66, currency: "GBP", date: "Jun 5", time: "11:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0605" },
   { id: 42, merchant: "Annual Software Subscription", type: "debit", amount: -1144.44, currency: "USD", date: "Jun 5", time: "21:00", category: "Transfer", status: "success", method: card.USD, reference: "SWSUB-ANN-0605" },
   // Jun 4
   // USD credit 44 → Equipment (46) + FX fee (47)
-  { id: 44, merchant: "Wire In — Daniel Cohen", type: "credit", amount: 6775.44, currency: "USD", date: "Jun 4", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DCOHEN-0604", relatedIds: [46, 47] },
+  { id: 44, merchant: "To Daniel Cohen", type: "credit", amount: 6775.44, currency: "USD", date: "Jun 4", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DCOHEN-0604", relatedIds: [46, 47] },
   { id: 45, merchant: "Business Class Flight", type: "debit", amount: -5685.46, currency: "EUR", date: "Jun 4", time: "10:00", category: "Travel", status: "success", method: card.EUR, reference: "BIZFLIGHT-0604" },
   { id: 46, merchant: "Tech Equipment Order", type: "debit", amount: -2656.74, currency: "USD", date: "Jun 4", time: "16:20", category: "Shopping", status: "success", method: card.USD, reference: "TECHEQUIP-0604", creditId: 44 },
   { id: 47, merchant: "Currency conversion fee", type: "debit", amount: -100.0, currency: "USD", date: "Jun 4", time: "16:21", category: "Fees", status: "success", method: "Service charge", reference: "FEE-FX-0604", creditId: 44 },
   { id: 48, merchant: "Mortgage Payment — Jun", type: "debit", amount: -824.48, currency: "GBP", date: "Jun 4", time: "18:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "MORT-0604-9912" },
   // Jun 3
   // EUR credits 49+52 → Transfer out (50)
-  { id: 49, merchant: "Wire In — Jan Kowalczyk", type: "credit", amount: 4720.55, currency: "EUR", date: "Jun 3", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0603", relatedIds: [50] },
+  { id: 49, merchant: "To Jan Kowalczyk", type: "credit", amount: 4720.55, currency: "EUR", date: "Jun 3", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0603", relatedIds: [50] },
   { id: 52, merchant: "Deposit — Eva Lindqvist", type: "credit", amount: 2353.42, currency: "EUR", date: "Jun 3", time: "09:40", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-ELINDQVIST-0603" },
   { id: 50, merchant: "To Anna Kowalski", type: "debit", amount: -6869.93, currency: "EUR", date: "Jun 3", time: "13:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-AKOWALSKI-0603", creditId: 49 },
   { id: 51, merchant: "Visa Card Top-up", type: "debit", amount: -936.90, currency: "GBP", date: "Jun 3", time: "20:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0603" },
@@ -335,14 +335,14 @@ export const transactions: Transaction[] = [
   { id: 239, merchant: "Mastercard Business Top-up", type: "debit", amount: -1199.24, currency: "GBP", date: "Jun 2", time: "08:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-BIZ-0602", creditId: 56 },
   // Jun 1
   // EUR credit 57 → Deposit (58)
-  { id: 57, merchant: "Wire In — Pavel Horvath", type: "credit", amount: 3843.84, currency: "EUR", date: "Jun 1", time: "08:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-PHORVATH-0601", relatedIds: [58] },
+  { id: 57, merchant: "To Pavel Horvath", type: "credit", amount: 3843.84, currency: "EUR", date: "Jun 1", time: "08:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-PHORVATH-0601", relatedIds: [58] },
   // GBP credit 59 → Rail season (60)
   { id: 59, merchant: "Deposit — Lena Brandt", type: "credit", amount: 4290.83, currency: "GBP", date: "Jun 1", time: "09:35", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-LBRANDT-0601", relatedIds: [60] },
   { id: 58, merchant: "Term Deposit — 3 Month", type: "debit", amount: -3843.84, currency: "EUR", date: "Jun 1", time: "14:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "TERM-DEP-0601", creditId: 57 },
   { id: 60, merchant: "Annual Rail Card", type: "debit", amount: -1424.09, currency: "GBP", date: "Jun 1", time: "09:00", category: "Transport", status: "success", method: card.GBP, reference: "RAIL-ANN-0601", creditId: 59 },
   // May 31
   // EUR credit 61 → Payments (63+64)
-  { id: 61, merchant: "Wire In — Greta Hansen", type: "credit", amount: 4983.56, currency: "EUR", date: "May 31", time: "08:55", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-GHANSEN-0531", relatedIds: [63, 64] },
+  { id: 61, merchant: "To Greta Hansen", type: "credit", amount: 4983.56, currency: "EUR", date: "May 31", time: "08:55", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-GHANSEN-0531", relatedIds: [63, 64] },
   // GBP cashback 62 (tiny credit, no linked debit)
   { id: 62, merchant: "Cashback reward", type: "credit", amount: 600.0, currency: "GBP", date: "May 31", time: "00:01", category: "Income", status: "success", method: "Rewards", reference: "CASHBACK-0531" },
   { id: 63, merchant: "Supplier Bulk Payment", type: "debit", amount: -4974.77, currency: "EUR", date: "May 31", time: "11:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "SUPP-BULK-0531", creditId: 61 },
@@ -356,20 +356,20 @@ export const transactions: Transaction[] = [
   { id: 69, merchant: "Property Deposit", type: "debit", amount: -4369.86, currency: "EUR", date: "May 30", time: "19:45", category: "Transfer", status: "success", method: "Sepa transfer", reference: "PROP-DEP-0530", creditId: 65 },
   // May 28
   // GBP credit 70 → Equipment (73)
-  { id: 70, merchant: "Wire In — Marco Rossi", type: "credit", amount: 4865.50, currency: "GBP", date: "May 28", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MROSSI-0528", relatedIds: [73] },
+  { id: 70, merchant: "To Marco Rossi", type: "credit", amount: 4865.50, currency: "GBP", date: "May 28", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MROSSI-0528", relatedIds: [73] },
   { id: 71, merchant: "To David Müller", type: "debit", amount: -1451.36, currency: "EUR", date: "May 28", time: "11:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-DMULLER-0528" },
   { id: 72, merchant: "MacBook Purchase", type: "debit", amount: -1185.31, currency: "USD", date: "May 28", time: "14:30", category: "Shopping", status: "success", method: card.USD, reference: "APPL-MBP-0528" },
   { id: 73, merchant: "Professional Equipment", type: "debit", amount: -1536.52, currency: "GBP", date: "May 28", time: "17:15", category: "Shopping", status: "success", method: card.GBP, reference: "PROEQUIP-0528", creditId: 70 },
   // May 27
   // USD credit 74 (standalone)
-  { id: 74, merchant: "Wire In — Noah Fischer", type: "credit", amount: 600.0, currency: "USD", date: "May 27", time: "09:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-NFISCHER-0527" },
+  { id: 74, merchant: "To Noah Fischer", type: "credit", amount: 600.0, currency: "USD", date: "May 27", time: "09:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-NFISCHER-0527" },
   { id: 75, merchant: "Furniture Purchase", type: "debit", amount: -5685.46, currency: "EUR", date: "May 27", time: "13:40", category: "Shopping", status: "success", method: card.EUR, reference: "FURN-0527-9914" },
   { id: 76, merchant: "To Sofia Bauer", type: "debit", amount: -3079.62, currency: "EUR", date: "May 27", time: "11:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-SBAUER-0527" },
   { id: 77, merchant: "Debit Card Top-up", type: "debit", amount: -66.92, currency: "GBP", date: "May 27", time: "13:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-DEBIT-0527" },
   // May 26
   // EUR exchange credit 78 + EUR credit 79 (standalones)
   { id: 78, merchant: "Currency Exchange", type: "credit", amount: 4720.55, currency: "EUR", date: "May 26", time: "09:00", category: "Exchange", status: "success", method: "GBP → EUR", reference: "FX-0526-9912", rate: "1 GBP = 1.17 EUR" },
-  { id: 79, merchant: "Wire In — Olivia Schmidt", type: "credit", amount: 3142.47, currency: "EUR", date: "May 26", time: "10:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-OSCHMIDT-0526" },
+  { id: 79, merchant: "To Olivia Schmidt", type: "credit", amount: 3142.47, currency: "EUR", date: "May 26", time: "10:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-OSCHMIDT-0526" },
   { id: 80, merchant: "Mastercard Business Top-up", type: "debit", amount: -1311.66, currency: "GBP", date: "May 26", time: "12:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-BIZ-0526" },
   { id: 81, merchant: "Annual Cloud Storage Plan", type: "debit", amount: -787.0, currency: "GBP", date: "May 26", time: "13:00", category: "Transfer", status: "success", method: card.GBP, reference: "CLOUD-ANN-0526" },
   // May 24
@@ -380,7 +380,7 @@ export const transactions: Transaction[] = [
   { id: 85, merchant: "Corporate Travel Pass", type: "debit", amount: -1536.52, currency: "GBP", date: "May 24", time: "07:50", category: "Transport", status: "success", method: card.GBP, reference: "CORP-TRVL-0524" },
   // May 22
   // USD credit 86 → AWS (87)
-  { id: 86, merchant: "Wire In — Daniel Cohen", type: "credit", amount: 6214.04, currency: "USD", date: "May 22", time: "08:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DCOHEN-0522", relatedIds: [87] },
+  { id: 86, merchant: "To Daniel Cohen", type: "credit", amount: 6214.04, currency: "USD", date: "May 22", time: "08:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DCOHEN-0522", relatedIds: [87] },
   // EUR credit 89 → Services (88)
   { id: 89, merchant: "Deposit — Felix Weber", type: "credit", amount: 1739.73, currency: "EUR", date: "May 22", time: "09:05", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-FWEBER-0522", relatedIds: [88] },
   { id: 87, merchant: "AWS Reserved Instances", type: "debit", amount: -2534.12, currency: "USD", date: "May 22", time: "20:00", category: "Transfer", status: "success", method: card.USD, reference: "AWS-RES-0522", creditId: 86 },
@@ -389,7 +389,7 @@ export const transactions: Transaction[] = [
   // GBP credit 90 (standalone salary)
   { id: 90, merchant: "Salary — Northwind Ltd", type: "credit", amount: 7000.0, currency: "GBP", date: "May 20", time: "07:00", category: "Income", status: "success", method: "Sepa transfer", reference: "NW-PAYROLL-0520" },
   // EUR credit 91 → Services payment (93)
-  { id: 91, merchant: "Wire In — Elena Popov", type: "credit", amount: 3317.81, currency: "EUR", date: "May 20", time: "09:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-EPOPOV-0520", relatedIds: [93] },
+  { id: 91, merchant: "To Elena Popov", type: "credit", amount: 3317.81, currency: "EUR", date: "May 20", time: "09:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-EPOPOV-0520", relatedIds: [93] },
   { id: 92, merchant: "To Noah Fischer", type: "debit", amount: -1097.94, currency: "USD", date: "May 20", time: "11:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-NFISCHER-0520" },
   { id: 93, merchant: "Legal Services Payment", type: "debit", amount: -5140.52, currency: "EUR", date: "May 20", time: "16:45", category: "Transfer", status: "success", method: "Sepa transfer", reference: "LEGAL-SVC-0520", creditId: 91 },
   // May 18
@@ -400,13 +400,13 @@ export const transactions: Transaction[] = [
   { id: 97, merchant: "Mastercard Top-up", type: "debit", amount: 0.0, currency: "GBP", date: "May 18", time: "11:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0518" },
   // May 15
   // EUR credit 98 → Conference (100)
-  { id: 98, merchant: "Wire In — Sofia Bauer", type: "credit", amount: 4106.85, currency: "EUR", date: "May 15", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-SBAUER-0515", relatedIds: [100] },
+  { id: 98, merchant: "To Sofia Bauer", type: "credit", amount: 4106.85, currency: "EUR", date: "May 15", time: "08:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-SBAUER-0515", relatedIds: [100] },
   { id: 99, merchant: "To Lena Brandt", type: "debit", amount: 0.0, currency: "GBP", date: "May 15", time: "12:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "P2P-OUT-LBRANDT-0515" },
   { id: 100, merchant: "Conference & Events", type: "debit", amount: -6040.80, currency: "EUR", date: "May 15", time: "09:45", category: "Travel", status: "success", method: card.EUR, reference: "CONF-EVT-0515", creditId: 98 },
   { id: 101, merchant: "Visa Card Top-up", type: "debit", amount: -980.95, currency: "USD", date: "May 15", time: "15:10", category: "Top-up", status: "success", method: card.USD, reference: "TOPUP-VISA-0515" },
   // May 13
   // EUR credits 102+105 → Supplier (104)
-  { id: 102, merchant: "Wire In — Tomas Novak", type: "credit", amount: 4720.55, currency: "EUR", date: "May 13", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-TNOVAK-0513", relatedIds: [104] },
+  { id: 102, merchant: "To Tomas Novak", type: "credit", amount: 4720.55, currency: "EUR", date: "May 13", time: "08:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-TNOVAK-0513", relatedIds: [104] },
   // USD exchange credit 103 (standalone)
   { id: 103, merchant: "Currency Exchange", type: "credit", amount: 3182.46, currency: "USD", date: "May 13", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0513-7740", rate: "1 GBP = 1.27 USD" },
   { id: 105, merchant: "Deposit — Mia Larsson", type: "credit", amount: 1476.71, currency: "EUR", date: "May 13", time: "10:20", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-MLARSSON-0513" },
@@ -420,7 +420,7 @@ export const transactions: Transaction[] = [
   { id: 109, merchant: "Prepaid Visa Top-up", type: "debit", amount: -2961.18, currency: "EUR", date: "May 10", time: "17:30", category: "Top-up", status: "success", method: card.EUR, reference: "TOPUP-VISA-PRE-0510", creditId: 106 },
   // May 8
   // EUR credit 110 → Vendor (113)
-  { id: 110, merchant: "Wire In — Jan Kowalczyk", type: "credit", amount: 4369.86, currency: "EUR", date: "May 8", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0508", relatedIds: [113] },
+  { id: 110, merchant: "To Jan Kowalczyk", type: "credit", amount: 4369.86, currency: "EUR", date: "May 8", time: "08:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-JKOWALCZYK-0508", relatedIds: [113] },
   { id: 111, merchant: "Azure Cloud Services", type: "debit", amount: 0.0, currency: "USD", date: "May 8", time: "21:00", category: "Transfer", status: "success", method: card.USD, reference: "AZURE-SVC-0508" },
   { id: 112, merchant: "Equipment Lease Payment", type: "debit", amount: 0.0, currency: "GBP", date: "May 8", time: "15:20", category: "Transfer", status: "success", method: card.GBP, reference: "EQUIPLEASE-0508" },
   { id: 113, merchant: "Vendor Invoice — Axis Ltd", type: "debit", amount: -6633.03, currency: "EUR", date: "May 8", time: "11:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "VENDOR-AXIS-0508", creditId: 110 },
@@ -432,12 +432,12 @@ export const transactions: Transaction[] = [
   { id: 117, merchant: "Visa Business Top-up", type: "debit", amount: 0.0, currency: "GBP", date: "May 6", time: "19:30", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-BIZ-0506" },
   // May 4
   // EUR credit 118 (standalone large deposit)
-  { id: 118, merchant: "Wire In — Pavel Horvath", type: "credit", amount: 4895.89, currency: "EUR", date: "May 4", time: "08:25", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-PHORVATH-0504" },
+  { id: 118, merchant: "To Pavel Horvath", type: "credit", amount: 4895.89, currency: "EUR", date: "May 4", time: "08:25", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-PHORVATH-0504" },
   { id: 119, merchant: "Mastercard Top-up", type: "debit", amount: 0.0, currency: "GBP", date: "May 4", time: "12:00", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0504" },
   { id: 120, merchant: "Annual SaaS Payment", type: "debit", amount: -2125.39, currency: "USD", date: "May 4", time: "22:00", category: "Transfer", status: "success", method: card.USD, reference: "SAAS-ANN-0504" },
   // May 3
   // EUR credit 121 (standalone)
-  { id: 121, merchant: "Wire In — David Müller", type: "credit", amount: 3843.84, currency: "EUR", date: "May 3", time: "08:35", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0503" },
+  { id: 121, merchant: "To David Müller", type: "credit", amount: 3843.84, currency: "EUR", date: "May 3", time: "08:35", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-DMULLER-0503" },
   { id: 122, merchant: "Fleet Fuel Card Top-up", type: "debit", amount: -1424.09, currency: "GBP", date: "May 3", time: "08:10", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-FUEL-0503" },
   { id: 123, merchant: "Catering Services", type: "debit", amount: -691.19, currency: "GBP", date: "May 3", time: "20:30", category: "Food", status: "success", method: card.GBP, reference: "CATERING-0503" },
   // May 2
@@ -450,7 +450,7 @@ export const transactions: Transaction[] = [
   // USD exchange credit 127 (standalone)
   { id: 127, merchant: "Currency Exchange", type: "credit", amount: 4305.26, currency: "USD", date: "May 1", time: "09:00", category: "Exchange", status: "success", method: "GBP → USD", reference: "FX-0501-7731", rate: "1 GBP = 1.27 USD" },
   // EUR credit 128 (standalone)
-  { id: 128, merchant: "Wire In — Mateo Garcia", type: "credit", amount: 3230.14, currency: "EUR", date: "May 1", time: "10:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MGARCIA-0501" },
+  { id: 128, merchant: "To Mateo Garcia", type: "credit", amount: 3230.14, currency: "EUR", date: "May 1", time: "10:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-IN-MGARCIA-0501" },
   { id: 129, merchant: "Mortgage Payment — May", type: "debit", amount: 0.0, currency: "GBP", date: "May 1", time: "18:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "MORT-0501-2200" },
   { id: 130, merchant: "ATM withdrawal fee", type: "debit", amount: 0.0, currency: "GBP", date: "May 1", time: "11:00", category: "Fees", status: "success", method: "Service charge", reference: "FEE-ATM-0501" },
 ];
