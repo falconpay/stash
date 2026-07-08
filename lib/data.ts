@@ -94,7 +94,7 @@ export const wallets: Wallet[] = [
     currency: "EUR",
     symbol: "€",
     name: "Euro",
-    balance: 184.50,
+    balance: 199.90,
     account: "•••• 2554",
     iban: "LT93 3981 8000 0096 2554",
     bic: "DIUALT22XXX",
@@ -105,7 +105,7 @@ export const wallets: Wallet[] = [
     currency: "GBP",
     symbol: "£",
     name: "British Pound",
-    balance: 127.30,
+    balance: 139.35,
     account: "•••• 7731",
     sortCode: "20-18-34",
     accountNo: "58739214",
@@ -116,7 +116,7 @@ export const wallets: Wallet[] = [
     currency: "USD",
     symbol: "$",
     name: "US Dollar",
-    balance: 156.75,
+    balance: 166.20,
     account: "•••• 9902",
     routing: "026009593",
     accountNo: "000123456789",
@@ -128,26 +128,47 @@ export const wallets: Wallet[] = [
 const card = { GBP: "Card •••• 7731", EUR: "Card •••• 2554", USD: "Card •••• 9902" };
 
 export const transactions: Transaction[] = [
-  // Today — Jul 6
+  // Today — Jul 8
+  // Credits arrive first (early morning bank processing), then debits through the day
+  // EUR credit 241 → spent on Cloud Hosting (243)
+  { id: 241, merchant: "Freelance — Apex Digital", type: "credit", amount: 1840.00, currency: "EUR", date: "Today", time: "08:20", category: "Income", status: "success", method: "Sepa transfer", reference: "APEX-INV-0708-001", relatedIds: [243] },
+  // GBP credit 242 → spent on Card Top-up (244)
+  { id: 242, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 1560.00, currency: "GBP", date: "Today", time: "08:47", category: "Income", status: "success", method: "CHAPS transfer", reference: "MERCER-INV-0708-90", relatedIds: [244] },
+  // USD credit 245 → spent on Prepaid Top-up (246)
+  { id: 245, merchant: "To Goldstein Partners", type: "credit", amount: 720.00, currency: "USD", date: "Today", time: "09:02", category: "Income", status: "success", method: "ACH Deposit", reference: "GOLD-WIRE-IN-0708", relatedIds: [246] },
+  { id: 243, merchant: "Cloud Hosting Services", type: "debit", amount: -1830.40, currency: "EUR", date: "Today", time: "13:15", category: "Transfer", status: "success", method: "Sepa transfer", reference: "CLOUD-SVC-0708-0072", creditId: 241 },
+  { id: 244, merchant: "Visa Card Top-up", type: "debit", amount: -1553.85, currency: "GBP", date: "Today", time: "11:05", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0708", creditId: 242 },
+  { id: 246, merchant: "Mastercard Prepaid Top-up", type: "debit", amount: -715.50, currency: "USD", date: "Today", time: "14:40", category: "Top-up", status: "success", method: card.USD, reference: "TOPUP-MC-0708", creditId: 245 },
+  // Yesterday — Jul 7
+  // EUR credit 247 → spent on SaaS Services (249)
+  { id: 247, merchant: "Deposit — Mia Larsson", type: "credit", amount: 2100.00, currency: "EUR", date: "Yesterday", time: "08:35", category: "Transfer", status: "success", method: "Sepa transfer", reference: "DEP-IN-MLARSSON-0707", relatedIds: [249] },
+  // GBP credit 248 → spent on Card Top-up (250)
+  { id: 248, merchant: "Coinbase Deposit", type: "credit", amount: 1340.00, currency: "GBP", date: "Yesterday", time: "09:10", category: "Income", status: "success", method: card.GBP, reference: "COINBASE-DEP-0707-4483", relatedIds: [250] },
+  // USD credit 251 → spent on Prepaid Wallet Top-up (252)
+  { id: 251, merchant: "Refund — Booking.com", type: "credit", amount: 610.00, currency: "USD", date: "Yesterday", time: "10:25", category: "Travel", status: "success", method: card.USD, reference: "BKNG-RFND-0707", relatedIds: [252] },
+  { id: 249, merchant: "SaaS Services Payment", type: "debit", amount: -2094.20, currency: "EUR", date: "Yesterday", time: "15:30", category: "Transfer", status: "success", method: "Sepa transfer", reference: "SAAS-PAY-0707", creditId: 247 },
+  { id: 250, merchant: "Mastercard Top-up", type: "debit", amount: -1334.10, currency: "GBP", date: "Yesterday", time: "12:20", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0707", creditId: 248 },
+  { id: 252, merchant: "Prepaid Wallet Top-up", type: "debit", amount: -605.05, currency: "USD", date: "Yesterday", time: "18:15", category: "Top-up", status: "success", method: card.USD, reference: "TOPUP-WALLET-0707", creditId: 251 },
+  // Jul 6
   // Credits arrive first (early morning bank processing), then debits through the day
   // EUR credit 220 → spent on Wire Transfer (226) + Wire Transfer (224)
-  { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 2616.44, currency: "EUR", date: "Today", time: "08:14", category: "Income", status: "success", method: "Sepa transfer", reference: "APEX-INV-0706-001", relatedIds: [226, 224] },
+  { id: 220, merchant: "Freelance — Apex Digital", type: "credit", amount: 2616.44, currency: "EUR", date: "Jul 6", time: "08:14", category: "Income", status: "success", method: "Sepa transfer", reference: "APEX-INV-0706-001", relatedIds: [226, 224] },
   // GBP credit 222 → spent on TfL (225) + Card Top-up (227)
-  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 8264.63, currency: "GBP", date: "Today", time: "08:51", category: "Income", status: "success", method: "CHAPS transfer", reference: "MERCER-INV-0706-88", relatedIds: [225, 227] },
-  // { id: 224, merchant: "Wire Transfer — Outbound", type: "debit", amount: -15557.52, currency: "EUR", date: "Today", time: "12:33", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-OUT-0706-0091", creditId: 220 },
-  { id: 225, merchant: "TfL Oyster Card Top-up", type: "debit", amount: -562.14, currency: "GBP", date: "Today", time: "09:07", category: "Top-up", status: "success", method: card.GBP, reference: "TFL-0706-2201", creditId: 222 },
-  { id: 226, merchant: "Wire Transfer — Utility Payment", type: "debit", amount: -2487.39, currency: "EUR", date: "Today", time: "10:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-UTIL-0706-JUL26", creditId: 220 },
-  { id: 227, merchant: "Visa Card Top-up", type: "debit", amount: -8142.15, currency: "GBP", date: "Today", time: "11:20", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0706", creditId: 222 },
-  // Yesterday — Jul 5
+  { id: 222, merchant: "Client Payment — Mercer & Co", type: "credit", amount: 8264.63, currency: "GBP", date: "Jul 6", time: "08:51", category: "Income", status: "success", method: "CHAPS transfer", reference: "MERCER-INV-0706-88", relatedIds: [225, 227] },
+  // { id: 224, merchant: "Wire Transfer — Outbound", type: "debit", amount: -15557.52, currency: "EUR", date: "Jul 6", time: "12:33", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-OUT-0706-0091", creditId: 220 },
+  { id: 225, merchant: "TfL Oyster Card Top-up", type: "debit", amount: -562.14, currency: "GBP", date: "Jul 6", time: "09:07", category: "Top-up", status: "success", method: card.GBP, reference: "TFL-0706-2201", creditId: 222 },
+  { id: 226, merchant: "Wire Transfer — Utility Payment", type: "debit", amount: -2487.39, currency: "EUR", date: "Jul 6", time: "10:00", category: "Transfer", status: "success", method: "Sepa transfer", reference: "WIRE-UTIL-0706-JUL26", creditId: 220 },
+  { id: 227, merchant: "Visa Card Top-up", type: "debit", amount: -8142.15, currency: "GBP", date: "Jul 6", time: "11:20", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-VISA-0706", creditId: 222 },
+  // Jul 5
   // Credits: Wire In (USD), VentureTech (EUR) — both arrive early
   // USD credit 216 → spent on Wire transfer to Anna (217)
-  { id: 216, merchant: "To Goldstein Partners", type: "credit", amount: 5091.23, currency: "USD", date: "Yesterday", time: "07:58", category: "Income", status: "success", method: "ACH Deposit", reference: "GOLD-WIRE-IN-0705", relatedIds: [217] },
+  { id: 216, merchant: "To Goldstein Partners", type: "credit", amount: 5091.23, currency: "USD", date: "Jul 5", time: "07:58", category: "Income", status: "success", method: "ACH Deposit", reference: "GOLD-WIRE-IN-0705", relatedIds: [217] },
   // EUR credit 214 → spent on services payment (215)
-  { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 2967.12, currency: "EUR", date: "Yesterday", time: "08:22", category: "Transfer", status: "success", method: "Sepa transfer", reference: "VT-PAY-IN-0705-332", relatedIds: [215] },
-  { id: 218, merchant: "Mastercard Top-up", type: "debit", amount: -749.52, currency: "GBP", date: "Yesterday", time: "09:05", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0705" },
-  { id: 217, merchant: "To Anna Kowalski", type: "debit", amount: -9482.12, currency: "USD", date: "Yesterday", time: "11:30", category: "Transfer", status: "success", method: "ACH Deposit", reference: "P2P-OUT-AKOWALSKI-0705", creditId: 216 },
-  { id: 219, merchant: "Coinbase Deposit", type: "credit", amount: 2074.24, currency: "GBP", date: "Yesterday", time: "13:00", category: "Income", status: "success", method: card.GBP, reference: "COINBASE-DEP-0705-4471" },
-  { id: 215, merchant: "Cloud Hosting Services", type: "debit", amount: -3671.86, currency: "EUR", date: "Yesterday", time: "19:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "CLOUD-SVC-0705-0071", creditId: 214 },
+  { id: 214, merchant: "Supplier Payment — VentureTech", type: "credit", amount: 2967.12, currency: "EUR", date: "Jul 5", time: "08:22", category: "Transfer", status: "success", method: "Sepa transfer", reference: "VT-PAY-IN-0705-332", relatedIds: [215] },
+  { id: 218, merchant: "Mastercard Top-up", type: "debit", amount: -749.52, currency: "GBP", date: "Jul 5", time: "09:05", category: "Top-up", status: "success", method: card.GBP, reference: "TOPUP-MC-0705" },
+  { id: 217, merchant: "To Anna Kowalski", type: "debit", amount: -9482.12, currency: "USD", date: "Jul 5", time: "11:30", category: "Transfer", status: "success", method: "ACH Deposit", reference: "P2P-OUT-AKOWALSKI-0705", creditId: 216 },
+  { id: 219, merchant: "Coinbase Deposit", type: "credit", amount: 2074.24, currency: "GBP", date: "Jul 5", time: "13:00", category: "Income", status: "success", method: card.GBP, reference: "COINBASE-DEP-0705-4471" },
+  { id: 215, merchant: "Cloud Hosting Services", type: "debit", amount: -3671.86, currency: "EUR", date: "Jul 5", time: "19:44", category: "Transfer", status: "success", method: "Sepa transfer", reference: "CLOUD-SVC-0705-0071", creditId: 214 },
   // Jul 4
   // GBP credit 208 → Amazon (210) + Card fee (212)
   { id: 208, merchant: "Invoice — Stratford Studio", type: "credit", amount: 5850.66, currency: "GBP", date: "Jul 4", time: "08:05", category: "Income", status: "success", method: "CHAPS transfer", reference: "STRAT-INV-0704-19", relatedIds: [210, 212] },

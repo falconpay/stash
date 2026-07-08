@@ -32,8 +32,8 @@ function dateSortKey(date: string): number {
   // Parse "Jul 4", "Jun 30", etc. — assign higher numbers for older dates
   const parsed = new Date(`${date} 2026`);
   if (!isNaN(parsed.getTime())) {
-    // Days before today (Jul 6 2026)
-    const today = new Date("Jul 6 2026");
+    // Days before today (Jul 8 2026)
+    const today = new Date("Jul 8 2026");
     return Math.ceil((today.getTime() - parsed.getTime()) / 86400000);
   }
   return 999;
